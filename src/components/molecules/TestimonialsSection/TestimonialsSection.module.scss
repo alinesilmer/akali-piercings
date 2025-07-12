@@ -1,0 +1,119 @@
+@import '../../../styles/mixins.scss';
+
+.testimonialsSection {
+  background-color: var(--color-dark);
+  padding: 6rem 2rem;
+  
+  @include mobile {
+    padding: 4rem 2rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-white);
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  
+  @include mobile {
+    font-size: 2.5rem;
+  }
+}
+
+.titleUnderline {
+  width: 80px;
+  height: 2px;
+  background-color: var(--color-primary);
+  margin: 0 auto 2rem;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+.carouselContainer {
+  @include flex-center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  
+  @include mobile {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+.navButton {
+  @include mobile {
+    display: none;
+  }
+}
+
+.carousel {
+  flex: 1;
+  max-width: 800px;
+}
+
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.testimonialSlide {
+  opacity: 0.7;
+  transform: scale(0.95);
+  transition: var(--transition);
+  
+  &.active {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  @include mobile {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.indicators {
+  @include flex-center;
+  gap: 0.5rem;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid var(--color-primary);
+  background-color: transparent;
+  cursor: pointer;
+  transition: var(--transition);
+  
+  &.active {
+    background-color: var(--color-primary);
+  }
+}

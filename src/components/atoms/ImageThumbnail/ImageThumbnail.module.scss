@@ -1,0 +1,47 @@
+@import '../../../styles/mixins.scss';
+
+.thumbnail {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  background: none;
+  padding: 0;
+  
+  &:hover {
+    border-color: rgba(194, 180, 138, 0.5);
+  }
+  
+  &.selected {
+    border-color: var(--color-primary);
+    
+    .overlay {
+      opacity: 0;
+    }
+  }
+  
+  @include mobile {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: var(--transition);
+}

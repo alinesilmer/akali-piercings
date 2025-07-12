@@ -1,0 +1,63 @@
+.iconButton {
+    @include flex-center;
+    border-radius: 50%;
+    transition: var(--transition);
+    
+    &.small {
+      width: 32px;
+      height: 32px;
+      
+      svg {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    
+    &.medium {
+      width: 40px;
+      height: 40px;
+      
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+    
+    &.large {
+      width: 48px;
+      height: 48px;
+      
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    
+    &.primary {
+      background-color: var(--color-primary);
+      color: var(--color-dark);
+      
+      &:hover {
+        background-color: var(--color-secondary);
+      }
+    }
+    
+    &.secondary {
+      background-color: var(--color-secondary);
+      color: var(--color-dark);
+      
+      &:hover {
+        background-color: var(--color-primary);
+      }
+    }
+    
+    &.ghost {
+      background-color: transparent;
+      color: var(--color-white);
+      
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  

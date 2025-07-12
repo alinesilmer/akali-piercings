@@ -1,0 +1,76 @@
+@import '../../../styles/mixins.scss';
+
+.categoryFilter {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(194, 180, 138, 0.3);
+  
+  @include mobile {
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem 0;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
+}
+
+.categoryButton {
+  background: none;
+  border: 2px solid rgba(194, 180, 138, 0.3);
+  border-radius: 12px;
+  padding: 0;
+  cursor: pointer;
+  transition: var(--transition);
+  
+  &:hover {
+    border-color: var(--color-primary);
+    
+    .iconContainer {
+      background-color: rgba(194, 180, 138, 0.1);
+    }
+  }
+  
+  &.active {
+    border-color: var(--color-primary);
+    
+    .iconContainer {
+      background-color: var(--color-primary);
+      
+      .icon {
+        color: var(--color-dark);
+      }
+    }
+  }
+  
+  @include mobile {
+    flex-shrink: 0;
+  }
+}
+
+.iconContainer {
+  @include flex-center;
+  width: 60px;
+  height: 60px;
+  transition: var(--transition);
+  
+  @include mobile {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary);
+  transition: var(--transition);
+  
+  @include mobile {
+    width: 20px;
+    height: 20px;
+  }
+}

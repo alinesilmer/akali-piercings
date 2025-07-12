@@ -1,0 +1,149 @@
+@import '../../../styles/mixins.scss';
+
+.searchModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1001;
+  padding: 2rem;
+  
+  @include mobile {
+    padding: 1rem;
+  }
+}
+
+.searchContainer {
+  background-color: var(--color-dark);
+  border: 1px solid var(--color-primary);
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 80vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.searchHeader {
+  @include flex-between;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(194, 180, 138, 0.3);
+  gap: 1rem;
+  
+  @include mobile {
+    padding: 1rem;
+  }
+}
+
+.searchContent {
+  flex: 1;
+  overflow-y: auto;
+  min-height: 200px;
+}
+
+.emptyState {
+  padding: 3rem 2rem;
+  text-align: center;
+  
+  p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-secondary);
+    margin-bottom: 2rem;
+  }
+  
+  .suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    
+    span {
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--color-white);
+      margin-right: 0.5rem;
+    }
+    
+    button {
+      background: none;
+      border: 1px solid var(--color-primary);
+      color: var(--color-primary);
+      padding: 0.3rem 0.8rem;
+      border-radius: 15px;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition);
+      
+      &:hover {
+        background-color: var(--color-primary);
+        color: var(--color-dark);
+      }
+    }
+  }
+}
+
+.noResults {
+  padding: 3rem 2rem;
+  text-align: center;
+  
+  p {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+  }
+  
+  span {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+  }
+}
+
+.results {
+  padding: 1rem 0;
+}
+
+.resultsHeader {
+  padding: 0 1.5rem 1rem;
+  border-bottom: 1px solid rgba(194, 180, 138, 0.2);
+  
+  span {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+  }
+  
+  @include mobile {
+    padding: 0 1rem 1rem;
+  }
+}
+
+.resultsList {
+  max-height: 400px;
+  overflow-y: auto;
+  
+  // Custom scrollbar
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) transparent;
+  
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 3px;
+  }
+}

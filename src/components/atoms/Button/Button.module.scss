@@ -1,0 +1,39 @@
+@import '../../../styles/mixins.scss';
+
+.button {
+  @include button-base;
+  
+  &.primary {
+    @include button-primary;
+  }
+  
+  &.secondary {
+    @include button-secondary;
+  }
+  
+  &.outline {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 1px solid var(--color-white);
+    
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-dark);
+    }
+  }
+  
+  &.small {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  &.large {
+    padding: 1.2rem 2.5rem;
+    font-size: 1.1rem;
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

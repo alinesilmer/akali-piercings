@@ -1,0 +1,60 @@
+@import '../../../styles/mixins.scss';
+
+.featureCard {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(194, 180, 138, 0.3);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  
+  &:hover {
+    border-color: var(--color-primary);
+    background-color: rgba(194, 180, 138, 0.1);
+  }
+}
+
+.iconContainer {
+  @include flex-center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+  color: var(--color-dark);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--color-white);
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  line-height: 1.5;
+}
+
+@include mobile {
+  .featureCard {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.1rem;
+  }
+  
+  .description {
+    font-size: 0.85rem;
+  }
+}

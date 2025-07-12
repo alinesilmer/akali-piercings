@@ -1,0 +1,64 @@
+@import '../../../styles/mixins.scss';
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  @include flex-center;
+  z-index: 1000;
+  padding: 2rem;
+  
+  @include mobile {
+    padding: 1rem;
+  }
+}
+
+.modalContent {
+  background-color: var(--color-dark);
+  border: 2px solid var(--color-primary);
+  border-radius: 16px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  
+  &.small {
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  &.medium {
+    max-width: 600px;
+    width: 100%;
+  }
+  
+  &.large {
+    max-width: 1000px;
+    width: 100%;
+  }
+  
+  &.fullscreen {
+    width: 95vw;
+    height: 90vh;
+    max-width: none;
+    max-height: none;
+  }
+  
+  @include mobile {
+    &.large,
+    &.fullscreen {
+      width: 95vw;
+      height: 85vh;
+      max-width: none;
+    }
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10;
+}
