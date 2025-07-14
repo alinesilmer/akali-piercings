@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import ProductGrid from "../../components/molecules/Services/ProductGrid/ProductGrid";
 import {
@@ -11,8 +11,13 @@ import {
   JEWELRY_CATEGORIES,
 } from "../../utils/servicesData";
 import styles from "./Services.module.scss";
+import GeneralHero from "../../components/molecules/ui/GeneralHero/GeneralHero";
+import Line from "../../components/molecules/ui/Line/Line";
 
 const Services: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <motion.div
       className={styles.services}
@@ -21,44 +26,29 @@ const Services: React.FC = () => {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className={styles.heroSection}>
-        <div className={styles.imageContainer}>
-          <img src="/images/services-image.png" alt="Servicios y Productos" />
-        </div>
+      <section>
+        <GeneralHero
+          src="https://i.pinimg.com/736x/b1/82/99/b18299cb75418b9a805935e843a09ea3.jpg"
+          isVideo={false}
+          textTop="El piercings es tuyo, pero el momento"
+          textTopBottom="lo construimos juntos"
+          titleTop="SERVICIOS"
+          titleEs="&"
+          titleBottom="PRODUCTOS"
+          textBottomTop="La joya más importante es cómo"
+          textBottom="te sentís al mirarte"
+        />
+      </section>
 
-        <div className={styles.content}>
-          <motion.div
-            className={styles.textContent}
-            initial={{ x: 50, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-          >
-            <p className={styles.subtitle}>
-              El piercings es tuyo, pero el momento
-            </p>
-            <p className={styles.subtitle}>lo construimos juntos</p>
-
-            <h1 className={styles.title}>
-              SERVICIOS
-              <br />
-              <span className={styles.ampersand}>&</span>
-              <br />
-              PRODUCTOS
-            </h1>
-
-            <div className={styles.description}>
-              <p>La joya más importante es cómo</p>
-              <p>te sentís al mirarte</p>
-            </div>
-          </motion.div>
-        </div>
-      </div>
+      <Line />
 
       <ProductGrid
         title="SERVICIOS DE PIERCING"
         products={PIERCING_SERVICES}
         categories={PIERCING_CATEGORIES}
       />
+
+      <Line />
 
       <ProductGrid
         title="JOYERÍA Y ACCESORIOS"

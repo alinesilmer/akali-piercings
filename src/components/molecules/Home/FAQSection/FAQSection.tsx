@@ -4,7 +4,6 @@ import type React from "react";
 
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { Mail } from "lucide-react";
 import AccordionItem from "../../../atoms/AccordionItem/AccordionItem";
 import Button from "../../../atoms/Button/Button";
 import { useAccordion } from "../../../../hooks/useAccordion";
@@ -37,7 +36,6 @@ const FAQSection: React.FC = () => {
             </h2>
 
             <Button variant="outline" size="medium" onClick={handleContact}>
-              <Mail className={styles.buttonIcon} />
               Contáctanos
             </Button>
           </motion.div>

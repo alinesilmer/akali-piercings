@@ -1,36 +1,74 @@
-import styles from "./GeneralHero.module.scss";
-import Video from "../../../../assets/videos/EjemploVID1.mp4";
+"use client";
 
-export default function GeneralHero() {
+import React from "react";
+import styles from "./GeneralHero.module.scss";
+
+interface GeneralHeroProps {
+  src: string;
+  isVideo?: boolean;
+  alt?: string;
+  textTop?: string;
+  textTopBottom?: string;
+  textBottomTop?: string;
+  textBottom?: string;
+  titleTop?: string;
+  titleEs?: string;
+  titleBottom?: string;
+}
+
+const GeneralHero: React.FC<GeneralHeroProps> = ({
+  src,
+  isVideo = true,
+  alt = "Hero media",
+  textTop,
+  textTopBottom,
+  textBottomTop,
+  textBottom,
+  titleTop,
+  titleEs,
+  titleBottom,
+}) => {
   return (
     <section className={styles.hero}>
-      <div className={styles.heroVideoContainer}>
-        {/* Using a <video> tag instead of <img> */}
-        <video
-          src={Video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={styles.heroVideo}
-          aria-label="Background"
-        >
-          Your browser does not support the video tag.
-        </video>
+      <div className={styles.heroMediaContainer}>
+        {isVideo ? (
+          <video
+            src={src}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className={styles.heroMedia}
+            aria-label="Background video"
+          >
+            Your browser does not support the video tag.
+          </video>
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            className={styles.heroMedia}
+            aria-label="Background image"
+          />
+        )}
       </div>
       <div className={styles.heroContent}>
         <div className={styles.heroTextTop}>
-          <p>Cuidarte es parte del proceso</p>
-          <p>estamos para acompañarte</p>
+          <p>{textTop}</p>
+          <p>{textTopBottom}</p>
         </div>
-        <h1 className={styles.heroTitle}>
-          QUIÉN <span className={styles.heroTitleEs}>es</span> AKALI
-        </h1>
+        <div className={styles.heroTitleContainer}>
+          <h2 className={styles.heroTitleTop}>{titleTop}</h2>
+          <span className={styles.heroTitleEs}>{titleEs}</span>
+          <h2 className={styles.heroTitleBottom}>{titleBottom}</h2>
+        </div>
         <div className={styles.heroTextBottom}>
-          <p>Hecho con amor</p>
-          <p>y paciencia</p>
+          <p>{textBottom}</p>
+          <p>{textBottomTop}</p>
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default GeneralHero;

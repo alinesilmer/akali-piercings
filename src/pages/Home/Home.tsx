@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./Home.module.scss";
 import FeaturesSection from "../../components/molecules/Home/FeaturesSection/FeaturesSection";
@@ -23,6 +23,10 @@ const Home: React.FC = () => {
     )}`;
     window.open(url, "_blank");
   };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <motion.div

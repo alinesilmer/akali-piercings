@@ -2,60 +2,17 @@
 "use client";
 
 import React from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import styles from "./About.module.scss";
-import GallerySection from "../../components/molecules/AboutUs/GallerySection/GallerySection";
 import GeneralHero from "../../components/molecules/ui/GeneralHero/GeneralHero";
-
-const galleryItems = [
-  {
-    title: "Labret",
-    image:
-      "https://images.unsplash.com/photo-1592194996305-3a0c3db6ee99?auto=format&fit=crop&w=300&q=60",
-    date: "12/04/2025",
-    isRecent: true,
-  },
-  {
-    title: "Nostril",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=60",
-    date: "06/03/2025",
-    isRecent: true,
-  },
-  {
-    title: "Navel",
-    image:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=300&q=60",
-    date: "22/01/2025",
-    isRecent: true,
-  },
-  {
-    title: "Labret",
-    image:
-      "https://images.unsplash.com/photo-1592194996305-3a0c3db6ee99?auto=format&fit=crop&w=300&q=60",
-    date: "12/04/2025",
-  },
-  {
-    title: "Nostril",
-    image:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=60",
-    date: "06/03/2025",
-  },
-  {
-    title: "Navel",
-    image:
-      "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=300&q=60",
-    date: "22/01/2025",
-  },
-  {
-    title: "Industrial",
-    image:
-      "https://images.unsplash.com/photo-1542353436-bb2a1c0dcd9b?auto=format&fit=crop&w=300&q=60",
-    date: "02/01/2025",
-  },
-];
+import Video from "../../assets/videos/EjemploVID1.mp4";
+import Line from "../../components/molecules/ui/Line/Line";
 
 const About: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <motion.div
       className={styles.about}
@@ -65,12 +22,19 @@ const About: React.FC = () => {
       transition={{ duration: 0.5 }}
     >
       <section>
-        <GeneralHero />
+        <GeneralHero
+          src={Video}
+          isVideo={true}
+          textTop="Cuidarte es parte del proceso"
+          textTopBottom="estamos para acompañarte"
+          titleTop="Quién"
+          titleEs="Es"
+          titleBottom="Akali"
+          textBottomTop="Hecho con amor"
+          textBottom="y paciencia"
+        />
       </section>
-
-      <section className={styles.gallerySection}>
-        <GallerySection items={galleryItems} />
-      </section>
+      <Line />
     </motion.div>
   );
 };

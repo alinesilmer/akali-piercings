@@ -1,0 +1,68 @@
+@import "../../../../styles/mixins.scss";
+
+/* ---------- Contenedor principal ---------- */
+.wrapper {
+  @include flex-center;
+  flex-direction: row;
+  border-radius: 6px;
+  padding: 2.5rem 1rem;
+  max-width: 100%;
+  margin: 0;
+  justify-content: center;
+  gap: 10rem;
+}
+
+/* Texto (izquierda) */
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    
+  align-items: flex-start;    
+  max-width: 50%;
+}
+
+.title {
+  width: 100%;                
+  text-align: left;          
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  font-weight: 400;
+  white-space: pre-line;
+  color: var(--color-white);
+}
+
+.description {
+  width: 100%;                
+  font-size: 1.2rem;
+  font-family: var(--font-body);
+  color: var(--color-white);
+  white-space: pre-line;
+  text-align: justify;        
+  text-justify: justify;
+  margin-top: 1rem;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .wrapper {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .textContainer {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 1.5rem;
+  }
+  .title {
+    font-size: 3rem;
+    text-align: center;
+  }
+  .description {
+    text-align: center;
+  }
+}

@@ -1,0 +1,124 @@
+@import "../../../styles/mixins.scss";
+
+/* ---------- Contenedor ---------- */
+.wrapper {
+  border: 2px solid var(--color-primary);
+  border-radius: 6px;
+  padding: 2.5rem;
+  max-width: 800px;
+  margin-inline: auto;
+  background: var(--color-dark);
+}
+
+/* Reduce padding on mobile */
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 1.5rem;
+  }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+  .wrapper {
+    max-width: 100%;
+    padding: 2rem;
+  }
+}
+
+/* ---------- Título ---------- */
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Formulario ---------- */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+}
+
+/* Fila de dos columnas, colapsa a 1 en pantallas estrechas */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.8rem;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Grupo etiqueta + campo */
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.formGroup label {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+
+/* Campos de entrada */
+$form-border: 1px solid var(--color-primary);
+
+.formGroup input,
+.formGroup textarea {
+  background: transparent;
+  border: $form-border;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-white);
+  resize: vertical;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 2px rgba(194, 180, 138, 0.3);
+  }
+}
+
+/* Botón enviado desde tu Button component, no toca aquí. */
+.sendIcon {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+/* ─── Pop-up de éxito ─── */
+.popup {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background: var(--color-secondary);
+  color: var(--color-dark);
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  z-index: 1000;
+  animation: slide-in 0.3s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

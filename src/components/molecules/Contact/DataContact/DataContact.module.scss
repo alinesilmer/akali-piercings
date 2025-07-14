@@ -1,0 +1,29 @@
+@import "../../../../styles/mixins.scss";
+
+.section {
+  @include flex-center;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+  padding-block: 2.5rem;
+  margin-top: 50px;
+}
+
+.cardsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 2.5rem;
+  }
+}
+
+.map {
+  width: min(100%, 860px);
+  height: 300px;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  border: solid 3px var(--color-primary);
+}
