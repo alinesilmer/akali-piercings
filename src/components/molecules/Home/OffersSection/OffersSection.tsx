@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronLeft, ChevronRight, Gem } from "lucide-react";
 import OfferCard from "../../../atoms/OfferCard/OfferCard";
 import { useCarousel } from "../../../../hooks/useCarousel";
