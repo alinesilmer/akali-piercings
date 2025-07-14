@@ -1,0 +1,165 @@
+@import "../../../../styles/mixins.scss";
+
+/* === GRID PRINCIPAL === */
+.faqSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* desktop */
+  min-height: 100vh;
+
+  /* Tablet: columnas iguales con gap */
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    row-gap: 2rem;
+  }
+
+  /* Mobile: misma lógica, pero padding menos agresivo */
+  @media (max-width: 768px) {
+    grid-template-rows: auto 1fr;
+    row-gap: 1.5rem;
+  }
+}
+
+/* === COLUMNA CONTACTO === */
+.contactSide {
+  background-color: var(--color-dark);
+  display: flex;
+  flex-direction: column;
+
+  /* Mobile: mitad de alto aprox. */
+  @media (max-width: 768px) {
+    min-height: 50vh;
+  }
+}
+
+.contactContent {
+  flex: 1;
+  @include flex-center;
+  padding: 3rem 2rem;
+  text-align: center;
+  padding-top: 8rem;
+
+  @media (max-width: 1024px) {
+    padding: 2.5rem 1.75rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1.5rem;
+  }
+}
+
+.contactTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1.75rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+}
+
+.buttonIcon {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+
+  @media (max-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+/* === IMAGEN DECORATIVA === */
+.toolsImage {
+  position: relative;
+  flex: 2;
+
+
+  img {
+    width: 70%;
+    position: absolute;
+    left: -2rem;
+  }
+
+  @media (max-width: 1024px) {
+    height: 240px;
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+/* === COLUMNA FAQ === */
+.faqSide {
+  background-color: var(--color-dark);
+  padding: 4rem 2rem;
+  @include flex-center;
+
+  @media (max-width: 1024px) {
+    padding: 3.5rem 2rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 1.5rem;
+  }
+}
+
+.faqContent {
+  max-width: 600px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+}
+
+.faqHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 2.25rem;
+  }
+}
+
+.faqTitle {
+  font-family: var(--font-heading);
+  font-size: 3rem;
+  color: var(--color-white);
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 2.1rem;
+    letter-spacing: 2px;
+  }
+}
+
+.titleUnderline {
+  width: 60px;
+  height: 2px;
+  background-color: var(--color-primary);
+  margin: 0 auto;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    gap: 0.75rem;
+  }
+}

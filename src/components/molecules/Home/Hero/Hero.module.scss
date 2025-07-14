@@ -1,0 +1,192 @@
+@import '../../../../styles/mixins.scss';
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  @include flex-center;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%) contrast(1) brightness(1.2);
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 800px;
+  padding: 0 2rem;
+  
+  @include mobile {
+    max-width: 90%;
+    padding: 0 1rem;
+  }
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: 1.3rem;
+  color: var(--color-white);
+  font-weight: 350;
+  letter-spacing: 0.5px;
+  margin: -8px;
+  text-shadow: 2px 2px 4px rgba(45, 45, 45, 0.7);
+  
+  @include mobile {
+    font-size: 1rem;
+  }
+}
+
+.titleContainer {
+  margin: 2rem 0;
+  
+  @include mobile {
+    margin: 1.5rem 0;
+  }
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  color: var(--color-white);
+  line-height: 0.85;
+  letter-spacing: 9px;
+  text-shadow: 3px 3px 6px rgba(72, 72, 72, 0.8);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  @include mobile {
+    letter-spacing: 4px;
+  }
+}
+
+.titleLine {
+  display: block;
+  font-size: 7rem;
+  
+  &:first-child {
+    margin-bottom: -0.2rem;
+  }
+  
+  @include tablet {
+    font-size: 4.5rem;
+  }
+  
+  @include mobile {
+    font-size: 3.2rem;
+  }
+}
+
+.buttonContainer {
+  margin-top: 2rem;
+  
+  
+  :global(.button) {
+    border: 2px solid var(--color-white);
+    color: var(--color-white);
+    background-color: transparent;
+    padding: 1.2rem 3rem;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    font-weight: 400;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: var(--color-white);
+      color: var(--color-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    @include mobile {
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+// RESPONSIVE STYLES
+@include tablet {
+  .hero {
+    height: 90vh;
+  }
+}
+
+@include mobile {
+  .hero {
+    height: 100vh;
+  }
+  
+  .content {
+    padding: 0 1rem;
+  }
+  
+  .subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .titleContainer {
+    margin: 1rem 0;
+  }
+  
+  .buttonContainer {
+    margin-top: 1.5rem;
+  }
+}
+
+
+.textContent {
+  * {
+    will-change: transform, opacity;
+  }
+}
+
+
+.subtitle,
+.title {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

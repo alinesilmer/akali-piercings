@@ -1,45 +1,43 @@
 "use client";
 
 import type React from "react";
-
 import { motion } from "framer-motion";
 import styles from "./TestimonialCard.module.scss";
 
 interface TestimonialCardProps {
   name: string;
-  text?: string;
-  image?: string;
-  type: "text" | "image";
+  text: string;
+  image: string;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
   name,
   text,
   image,
-  type,
 }) => {
   return (
     <motion.div
-      className={`${styles.testimonialCard} ${styles[type]}`}
+      className={styles.cardWrapper}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.25 }}
     >
-      {type === "text" ? (
-        <div className={styles.textContent}>
-          <p className={styles.quote}>"{text}"</p>
-        </div>
-      ) : (
-        <div className={styles.imageContent}>
+      <div className={styles.cardInner}>
+        {/* CARA FRONTAL */}
+        <div className={`${styles.cardFace} ${styles.cardFront}`}>
           <img
             src={image || "/placeholder.svg"}
-            alt={`Testimonio de ${name}`}
+            alt={`Foto de ${name}`}
             className={styles.image}
           />
+          <div className={styles.author}>
+            <h4 className={styles.name}>{name}</h4>
+          </div>
         </div>
-      )}
 
-      <div className={styles.author}>
-        <h4 className={styles.name}>{name}</h4>
+        {/* CARA TRASERA */}
+        <div className={`${styles.cardFace} ${styles.cardBack}`}>
+          <p className={styles.quote}>“{text}”</p>
+        </div>
       </div>
     </motion.div>
   );

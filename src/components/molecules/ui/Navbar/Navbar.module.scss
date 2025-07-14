@@ -1,0 +1,99 @@
+@import '../../../../styles/mixins.scss';
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(18, 18, 18, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(194, 180, 138, 0.2);
+  height: 90px;
+}
+
+.container {
+  @include flex-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;      
+  height: 100%;         
+}
+
+.logoContainer {
+  height: 100%;         
+  display: flex;
+  align-items: center;  
+}
+
+
+.searchContainer {
+  position: absolute;
+  left: 40%;
+  transform: translateX(-50%);
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.navLinks {
+  display: flex;
+  gap: 2rem;
+
+  @include mobile {
+    position: fixed;
+    top: 80px;         
+    left: 0;
+    right: 0;
+    background-color: var(--color-dark);
+    flex-direction: column;
+    padding: 2rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.navLink {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  color: var(--color-white);
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-primary);
+    transition: var(--transition);
+  }
+
+  &:hover::after,
+  &.active::after {
+    width: 100%;
+  }
+
+  &.active {
+    color: var(--color-primary);
+  }
+}
+
+.mobileMenuButton {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}

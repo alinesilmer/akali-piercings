@@ -1,0 +1,52 @@
+@import "../../../styles/mixins.scss";
+
+$gold: #c2b48a;
+
+.card {
+  width: 140px;
+  flex-shrink: 0;
+  text-align: center;
+  color: #fff;
+  font-family: var(--font-body, "Inter", sans-serif);
+
+  @include mobile { width: 120px; }
+}
+
+.image {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border: 2px solid $gold;
+  border-radius: 4px;
+  transition: transform 0.25s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.content {
+  margin-top: 0.6rem;
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.date,
+.method {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  line-height: 1.2;
+}
+
+.recentBadge {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  font-size: 0.7rem;
+  background: $gold;
+  color: #111;
+  border-radius: 4px;
+}

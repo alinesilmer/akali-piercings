@@ -1,0 +1,102 @@
+@import '../../../../styles/globals.scss'; // Import global variables and mixins
+
+.hero {
+  display: flex;
+  min-height: calc(100vh - 80px); // Adjust for a potential navbar height
+  background-color: var(--color-dark);
+  color: var(--color-white);
+
+  @include mobile {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+.heroVideoContainer { // Renamed from heroImageContainer
+  flex: 0 0 45%; // Roughly 45% width for the video
+  position: relative;
+  overflow: hidden;
+
+  @include mobile {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 50vh; // Take up half the viewport height on mobile
+  }
+}
+
+.heroVideo { // Renamed from heroImage
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.heroContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 4rem 6rem; // Adjust padding as needed
+  text-align: left;
+
+  @include mobile {
+    padding: 2rem;
+    text-align: center;
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+}
+
+.heroTextTop {
+  align-self: flex-end;
+  text-align: right;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-secondary); // Use secondary for subtle text
+
+  @include mobile {
+    align-self: center;
+    text-align: center;
+  }
+}
+
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: 6rem; // Large font size for main title
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-white);
+  margin: 0; // Remove default margin
+
+  @include mobile {
+    font-size: 3rem;
+  }
+
+  .heroTitleEs {
+    font-family: var(--font-body); // Different font for 'es'
+    font-size: 2.5rem; // Smaller size for 'es'
+    color: var(--color-primary); // Primary color for 'es'
+    text-transform: lowercase;
+    display: inline-block;
+    margin-left: 1rem;
+    vertical-align: middle;
+
+    @include mobile {
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.heroTextBottom {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-secondary); // Use secondary for subtle text
+
+  @include mobile {
+    text-align: center;
+  }
+}

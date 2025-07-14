@@ -5,6 +5,7 @@ import type React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import styles from "./AccordionItem.module.scss";
+import Line from "../../molecules/ui/Line/Line";
 
 interface AccordionItemProps {
   question: string;
@@ -41,6 +42,7 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
             transition={{ duration: 0.3 }}
             className={styles.content}
           >
+            <Line />
             <div className={styles.answer}>{answer}</div>
           </motion.div>
         )}

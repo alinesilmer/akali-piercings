@@ -1,3 +1,8 @@
+import Testimony from "../assets/images/clients/client.jpeg";
+import Testimony2 from "../assets/images/clients/client7.jpeg";
+import Testimony3 from "../assets/images/clients/client2.jpeg";
+
+
 export const FEATURES_DATA = [
     {
       id: "respeto",
@@ -44,25 +49,24 @@ export const FEATURES_DATA = [
         "Aceptamos efectivo, tarjetas de débito y crédito, transferencias bancarias y billeteras virtuales como Mercado Pago.",
     },
   ]
-  
-  export const TESTIMONIALS_DATA = [
-    {
-      id: "clara",
-      name: "Clara Sánchez",
-      text: "Luz me acompañó en cada parte del proceso, de manera profesional y cálida. Excelente servicio",
-      type: "text" as const,
-    },
-    {
-      id: "camila",
-      name: "Camila Pérez",
-      image: "/images/testimonial-1.png",
-      type: "image" as const,
-    },
-    {
-      id: "rocio",
-      name: "Rocío Díaz",
-      image: "/images/testimonial-1.png",
-      type: "image" as const,
-    },
-  ]
-  
+
+export const TESTIMONIALS_DATA = [
+  {
+    id: "clara",
+    name: "Clara Sánchez",
+    image: Testimony,
+    text: "¡Excelente atención y resultado impecable! Volvería sin dudar.",
+  },
+  {
+    id: "camila",
+    name: "Camila Pérez",
+    image: Testimony2,
+    text: "Me sentí súper cuidada durante todo el proceso. ¡Gracias Luz!",
+  },
+  {
+    id: "rocio",
+    name: "Rocío Díaz",
+    image: Testimony3,
+    text: "Profesional de primera. Recomiendo al 100 %.",
+  },
+];

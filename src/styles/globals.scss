@@ -1,20 +1,31 @@
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 1. Import Google Fonts (SCSS will inline this into your CSS)            */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
-// Variables
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 2. CSS Variables                                                        */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 :root {
-  --color-primary: #c2b48a;
+  --color-primary:   #c2b48a;
   --color-secondary: #ece6d3;
-  --color-dark: #121212;
-  --color-white: #ffffff;
-  
+  --color-dark:      #0e0e0e;
+  --color-white:     #ffffff;
+
   --font-heading: 'Cormorant SC', serif;
-  --font-body: 'Source Serif Pro', serif;
-  
+  --font-body:    'Source Serif Pro', serif;
+
   --transition: all 0.3s ease;
 }
 
-// Reset
-* {
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 3. Reset                                                                 */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -25,14 +36,17 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  background-color: var(--color-dark);
-  color: var(--color-white);
-  line-height: 1.6;
-  overflow-x: hidden;
+  font-family:    var(--font-body);
+  background:     var(--color-dark);
+  color:          var(--color-white);
+  line-height:    1.6;
+  overflow-x:     hidden;
 }
 
-// Typography
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 4. Typography                                                            */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 400;
@@ -41,39 +55,114 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   text-decoration: none;
-  color: inherit;
-  transition: var(--transition);
+  color:           inherit;
+  transition:      var(--transition);
 }
 
 button {
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-family: inherit;
-  transition: var(--transition);
+  border:         none;
+  background:     none;
+  cursor:         pointer;
+  font-family:    inherit;
+  transition:     var(--transition);
 }
 
-// Utilities
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 5. Utility Classes                                                       */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 .container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+  margin:    0 auto;
+  padding:   0 2rem;
 }
 
-.text-center {
-  text-align: center;
-}
+.text-center    { text-align: center; }
+.text-primary   { color: var(--color-primary); }
+.text-secondary { color: var(--color-secondary); }
 
-.text-primary {
-  color: var(--color-primary);
-}
 
-.text-secondary {
-  color: var(--color-secondary);
-}
-
-// App layout
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 6. App Layout                                                            */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
 .app {
   min-height: 100vh;
-  position: relative;
+  position:   relative;
+}
+
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 7. Responsive Mixins                                                     */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 8. Flexbox Utilities                                                     */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+@mixin flex-center {
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display:       flex;
+  align-items:   center;
+  justify-content: space-between;
+}
+
+
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* 9. Button Styles                                                         */
+/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+@mixin button-base {
+  padding:       1rem 2rem;
+  border-radius: 0;
+  font-family:   var(--font-heading);
+  font-size:     1rem;
+  letter-spacing:1px;
+  text-transform: uppercase;
+  transition:     var(--transition);
+  cursor:         pointer;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background:       transparent;
+  color:            var(--color-primary);
+  border:           2px solid var(--color-primary);
+
+  &:hover {
+    background: var(--color-primary);
+    color:      var(--color-dark);
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  background:       var(--color-primary);
+  color:            var(--color-dark);
+  border:           2px solid var(--color-primary);
+
+  &:hover {
+    background: transparent;
+    color:      var(--color-primary);
+  }
 }

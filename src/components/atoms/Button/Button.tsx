@@ -28,8 +28,8 @@ const Button: React.FC<ButtonProps> = ({
       onClick={onClick}
       disabled={disabled}
       type={type}
-      whileHover={{ scale: disabled ? 1 : 1.02 }}
-      whileTap={{ scale: disabled ? 1 : 0.98 }}
+      whileHover={{ scale: disabled ? 0.2 : 1 }}
+      whileTap={{ scale: disabled ? 1 : 0.8 }}
       transition={{ duration: 0.2 }}
     >
       {children}

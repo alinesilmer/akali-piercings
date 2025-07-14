@@ -3,7 +3,7 @@
 import type React from "react";
 
 import { motion } from "framer-motion";
-import ProductGrid from "../../components/molecules/ProductGrid/ProductGrid";
+import ProductGrid from "../../components/molecules/Services/ProductGrid/ProductGrid";
 import {
   PIERCING_SERVICES,
   JEWELRY_PRODUCTS,
