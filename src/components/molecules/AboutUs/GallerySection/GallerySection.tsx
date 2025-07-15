@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Frame from "../../../atoms/Frame/Frame";
@@ -34,36 +34,46 @@ const allPostUrls = [
   "https://www.instagram.com/p/DK4lEzAx5Aq/?img_index=1",
   "https://www.instagram.com/p/DK4kxYmxZA4/",
   "https://www.instagram.com/p/DKPpjFyRHx3/",
-  "https://www.instagram.com/p/DKPXf--t7Un/?img_index=1",
-  "https://www.instagram.com/p/DKPWMaURYzV/",
+  "https://www.instagram.com/p/DDcKPvAJ7We/?img_index=1",
+  "https://www.instagram.com/p/DJwXnBWRcMl/",
 ];
 
 export default function GallerySection() {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const scroll = (offset: number) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
-    }
-  };
-
-  // re-run Instagram embed script after React renders
+  const [width, setWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 1024
+  );
   useEffect(() => {
-    if (window.instgrm?.Embeds?.process) {
-      window.instgrm.Embeds.process();
-    }
+    const onResize = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  let visibleCount = 3;
+  if (width < 768) visibleCount = allPostUrls.length;
+  else if (width < 1024) visibleCount = 2;
+  const maxIndex = allPostUrls.length - visibleCount;
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (window.instgrm?.Embeds?.process) window.instgrm.Embeds.process();
+  }, [index, width]);
+
+  const visibleUrls =
+    visibleCount === allPostUrls.length
+      ? allPostUrls
+      : allPostUrls.slice(index, index + visibleCount);
 
   return (
     <section className={styles.gallerySection}>
       <div className={styles.leftPane}>
-        <Frame src={HeroImg} size={400} height={600} />
-        <h2 className={styles.verticalTitle}>GALERIA</h2>
+        <h2 className={styles.verticalTitle}>Galería</h2>
+        <Frame src={HeroImg} size={400} height={800} />
       </div>
 
       <div className={styles.rightPane}>
         <h3 className={styles.recentWorks}>Trabajos Recientes</h3>
         <motion.div
-          className={styles.cardRow}
+          className={styles.cardRowScroll}
           variants={listVariants}
           initial="hidden"
           animate="visible"
@@ -78,51 +88,55 @@ export default function GallerySection() {
                 className="instagram-media"
                 data-instgrm-permalink={url}
                 data-instgrm-version="14"
-                style={{
-                  margin: "1rem",
-                  maxWidth: "100px",
-                  maxHeight: "150px",
-                }}
-              ></blockquote>
+                style={{ margin: 0 }}
+              />
             </motion.div>
           ))}
         </motion.div>
 
         <h3 className={styles.works}>Trabajos</h3>
-        <div className={styles.cardRowScroll} ref={scrollRef}>
-          {allPostUrls.map((url) => (
+        <motion.div
+          className={styles.cardRowScroll}
+          variants={listVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {visibleUrls.map((url) => (
             <motion.div
               key={url}
               variants={itemVariants}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              className={styles.frame}
             >
               <blockquote
                 className="instagram-media"
                 data-instgrm-permalink={url}
                 data-instgrm-version="14"
-                style={{ margin: "1rem", maxWidth: "320px" }}
-              ></blockquote>
+                style={{ margin: 0 }}
+              />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <button
-          className={`${styles.navButton} ${styles.prev}`}
-          onClick={() => scroll(-300)}
-          aria-label="Prev"
-        >
-          ‹
-        </button>
-        <button
-          className={`${styles.navButton} ${styles.next}`}
-          onClick={() => scroll(300)}
-          aria-label="Next"
-        >
-          ›
-        </button>
+        {width >= 768 && visibleCount < allPostUrls.length && (
+          <>
+            <button
+              className={`${styles.navButton} ${styles.prev}`}
+              onClick={() => setIndex((i) => Math.max(0, i - 1))}
+              disabled={index === 0}
+              aria-label="Anterior"
+            >
+              ‹
+            </button>
+            <button
+              className={`${styles.navButton} ${styles.next}`}
+              onClick={() => setIndex((i) => Math.min(maxIndex, i + 1))}
+              disabled={index === maxIndex}
+              aria-label="Siguiente"
+            >
+              ›
+            </button>
+          </>
+        )}
       </div>
     </section>
   );

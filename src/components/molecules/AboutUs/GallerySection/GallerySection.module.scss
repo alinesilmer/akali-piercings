@@ -2,29 +2,30 @@
 
 .gallerySection {
   display: flex;
-  position: relative;
+  justify-content: center;      /* centramos todo el conjunto */
+  align-items: flex-start;
+  gap: 4rem;                    /* separación pareja img ↔ galería */
   width: 100%;
-  padding: 4rem 2rem;
+  padding: 4rem 0;
   background: var(--color-bg-dark);
-  box-sizing: border-box;
-}
-
-.frame {
-  content: fill;
+  overflow: hidden;
 }
 
 .leftPane {
   position: relative;
-  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0 2rem;
 }
 
 .verticalTitle {
   position: absolute;
-  top: 50%;
-  left: -2rem;
+  top: 75%;
+  left: -3rem;
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: left top;
-  font-size: 3rem;
+  font-size: 4rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--color-white);
@@ -33,50 +34,69 @@
 }
 
 .rightPane {
-  flex: 1;
   margin-left: 3rem;
+  display: flex;              
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
-/* Recent works row */
-.recentWorks {
-  font-size: 2rem;
+.recentWorks,
+.works {
+  font-size: 2.5rem;
+  font-weight: 600;
   color: var(--color-white);
   margin-bottom: 1.5rem;
-}
-
-.cardRow {
-  display: flex;
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-/* Scrollable works row */
-.works {
-  font-size: 2rem;
-  color: var(--color-white);
-  margin-bottom: 1rem;
 }
 
 .cardRowScroll {
   display: flex;
   gap: 2rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 1rem;
+  overflow: hidden;
   position: relative;
+  margin-bottom: 3rem;
+  justify-content: center; 
 
-  /* hide default scrollbar */
-  &::-webkit-scrollbar {
-    display: none;
+  @media (max-width: 768px) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+
+    /* ocultar scrollbar */
+    &::-webkit-scrollbar { display: none; }
+    scrollbar-width: none;
   }
-  -ms-overflow-style: none;
-  scrollbar-width: none;
 }
 
-/* nav arrows */
+/* ---------- tarjetas individuales ---------- */
+.frame {
+  flex-shrink: 0;
+  width: 10rem;
+  height: 12rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+
+  blockquote.instagram-media {
+    width: 100% !important;
+    max-width: none !important;
+    height: 100% !important;
+    margin: 0 !important;
+  }
+}
+
+/* ---------- chevrons ---------- */
 .navButton {
-  position: absolute;
-  top: calc(50% + 2rem);
+  position: absolute;          
+  top: 75%;
+  transform: translateY(-50%);
   background: none;
   border: none;
   color: var(--color-white);
@@ -86,50 +106,64 @@
   padding: 0.25rem;
   transition: color 0.2s;
 
-  &:hover { color: var(--color-primary); }
+  &:hover:not(:disabled) { color: var(--color-primary); }
+  &:disabled { opacity: 0.3; cursor: default; }
 }
+.prev { left: 1.5rem; }  
+.next { right: 1.5rem; }
 
-.prev {
-  right: 3rem + 2rem; 
-}
-
-.next {
-  right: 2rem;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
+/* ---------- TABLET (≤ 1024 px) ---------- */
+@media (max-width: 1024px) {
+  /* Se apila la sección y se reducen los espacios */
   .gallerySection {
     flex-direction: column;
-    padding: 2rem 1rem;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 1.5rem;
   }
 
   .leftPane {
-    flex: none;
-    width: 100%;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
   }
 
   .verticalTitle {
-    display: none;
+    position: static;         
+    transform: none;          
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin: 0;                 
   }
 
   .rightPane {
-    margin-left: 0;
-  }
-
-  .cardRow,
-  .cardRowScroll {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .cardRow,
-  .cardRowScroll {
-    overflow: visible;
+    margin-left: 0;          
+    width: 100%;
   }
 
   .navButton {
-    display: none;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0.5rem;
   }
+  .prev { left: 0; }
+  .next { right: 0; }
+
+  .cardRowScroll { margin-bottom: 2rem; }
+}
+
+/* ---------- MÓVIL (≤ 768 px) ---------- */
+@media (max-width: 768px) {
+  .cardRowScroll {
+    justify-content: flex-start;  
+    gap: 1rem;
+  }
+
+  .frame {
+    width: 8rem;
+    height: 9.5rem;
+  }
+
+  .navButton { display: none; }
 }
