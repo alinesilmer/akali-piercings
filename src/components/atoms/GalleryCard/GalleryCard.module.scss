@@ -1,52 +1,102 @@
-@import "../../../styles/mixins.scss";
+@import '../../../styles/mixins.scss';
 
-$gold: #c2b48a;
-
-.card {
-  width: 140px;
-  flex-shrink: 0;
-  text-align: center;
-  color: #fff;
-  font-family: var(--font-body, "Inter", sans-serif);
-
-  @include mobile { width: 120px; }
-}
-
-.image {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-  border: 2px solid $gold;
-  border-radius: 4px;
-  transition: transform 0.25s ease;
+.galleryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: var(--color-bg-secondary);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
 
   &:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
   }
 }
 
-.content {
-  margin-top: 0.6rem;
-}
-
 .title {
-  font-size: 0.95rem;
-  font-weight: 600;
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-white);
+  text-align: center;
 }
 
-.date,
-.method {
-  font-size: 0.8rem;
-  opacity: 0.85;
-  line-height: 1.2;
+.date {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  color: rgb(120, 120, 120);
+  text-align: center;
 }
 
-.recentBadge {
-  display: inline-block;
-  margin-top: 0.3rem;
-  padding: 0.1rem 0.5rem;
-  font-size: 0.7rem;
-  background: $gold;
-  color: #111;
-  border-radius: 4px;
+/* --- Modal styles --- */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+ display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.modalClose {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--color-bg-secondary);
+  color: var(--color-white);
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Mobile tweaks --- */
+
+@media (max-width: 600px) {
+  .galleryCard {
+    width: 100%;
+    padding: 0.75rem;
+  }
+  .title {
+    font-size: 1.1rem;
+  }
+  .date {
+    font-size: 0.8rem;
+  }
+  .modalContent {
+    max-width: 95%;
+    max-height: 80%;
+  }
 }

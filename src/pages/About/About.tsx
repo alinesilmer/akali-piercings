@@ -8,6 +8,11 @@ import styles from "./About.module.scss";
 import GeneralHero from "../../components/molecules/ui/GeneralHero/GeneralHero";
 import Video from "../../assets/videos/EjemploVID1.mp4";
 import Line from "../../components/molecules/ui/Line/Line";
+import WhyUs from "../../components/molecules/AboutUs/WhyUs/WhyUs";
+import Presentation from "../../components/molecules/AboutUs/Presentation/Presentation";
+import GallerySection from "../../components/molecules/AboutUs/GallerySection/GallerySection";
+import PreRecommendations from "../../components/molecules/AboutUs/PreRecomendations/PreRecomendations";
+import PostTreatment from "../../components/molecules/AboutUs/PostTreatment/PostTreatment";
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -35,6 +40,15 @@ const About: React.FC = () => {
         />
       </section>
       <Line />
+      <WhyUs />
+      <Line />
+      <Presentation />
+      <Line />
+      <PreRecommendations />
+      <Line />
+      <PostTreatment />
+      <Line />
+      <GallerySection />
     </motion.div>
   );
 };

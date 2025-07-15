@@ -1,87 +1,129 @@
-"use client";
+declare global {
+  interface Window {
+    instgrm?: {
+      Embeds?: {
+        process(): void;
+      };
+    };
+  }
+}
 
-import React, { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import type { Variants } from "framer-motion";
+import Frame from "../../../atoms/Frame/Frame";
 import styles from "./GallerySection.module.scss";
-import GalleryCard from "../../../atoms/GalleryCard/GalleryCard";
-import heroAboutUs from "../../../../assets/images/heroAboutUs.jpg";
+import HeroImg from "../../../../assets/images/heroAboutUs.jpg";
 
-interface GalleryItem {
-  title?: string;
-  image?: string;
-  date?: string;
-  method?: string;
-  isRecent?: boolean;
-}
+const listVariants: Variants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
 
-interface GallerySectionProps {
-  /** Lista completa de trabajos. Usa `isRecent: true` para “Trabajos Recientes” */
-  items: GalleryItem[];
-}
+const recentPostUrls = [
+  "https://www.instagram.com/p/DK4lEzAx5Aq/?img_index=1",
+  "https://www.instagram.com/p/DK4kxYmxZA4/",
+  "https://www.instagram.com/p/DKPpjFyRHx3/",
+];
 
-const GallerySection: React.FC<GallerySectionProps> = ({ items }) => {
-  const recentItems = items.filter((i) => i.isRecent);
-  const otherItems = items.filter((i) => !i.isRecent);
+const allPostUrls = [
+  "https://www.instagram.com/p/DK4lEzAx5Aq/?img_index=1",
+  "https://www.instagram.com/p/DK4kxYmxZA4/",
+  "https://www.instagram.com/p/DKPpjFyRHx3/",
+  "https://www.instagram.com/p/DKPXf--t7Un/?img_index=1",
+  "https://www.instagram.com/p/DKPWMaURYzV/",
+];
 
-  const worksRowRef = useRef<HTMLDivElement>(null);
-
-  /* Desplaza el contenedor horizontalmente */
-  const scrollWorksRow = (dir: "left" | "right") => {
-    if (!worksRowRef.current) return;
-    const offset = dir === "left" ? -300 : 300;
-    worksRowRef.current.scrollBy({ left: offset, behavior: "smooth" });
+export default function GallerySection() {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const scroll = (offset: number) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: offset, behavior: "smooth" });
+    }
   };
+
+  // re-run Instagram embed script after React renders
+  useEffect(() => {
+    if (window.instgrm?.Embeds?.process) {
+      window.instgrm.Embeds.process();
+    }
+  }, []);
 
   return (
     <section className={styles.gallerySection}>
-      {/* Columna izquierda -------------------------------------------------- */}
-      <div className={styles.heroWrapper}>
-        <img src={heroAboutUs} alt="Galería" className={styles.heroImage} />
-        <span className={styles.verticalLabel}>Galería</span>
+      <div className={styles.leftPane}>
+        <Frame src={HeroImg} size={400} height={600} />
+        <h2 className={styles.verticalTitle}>GALERIA</h2>
       </div>
 
-      {/* Columna derecha ---------------------------------------------------- */}
-      <div className={styles.rightCol}>
-        {/* Trabajos recientes */}
-        <h2 className={styles.heading}>Trabajos Recientes</h2>
-        <motion.div className={styles.recentGrid}>
-          {recentItems.map((item, idx) => (
-            <GalleryCard key={idx} {...item} />
+      <div className={styles.rightPane}>
+        <h3 className={styles.recentWorks}>Trabajos Recientes</h3>
+        <motion.div
+          className={styles.cardRow}
+          variants={listVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {recentPostUrls.map((url) => (
+            <motion.div
+              key={url}
+              variants={itemVariants}
+              className={styles.frame}
+            >
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink={url}
+                data-instgrm-version="14"
+                style={{
+                  margin: "1rem",
+                  maxWidth: "100px",
+                  maxHeight: "150px",
+                }}
+              ></blockquote>
+            </motion.div>
           ))}
         </motion.div>
 
-        {/* Trabajos */}
-        <h2 className={styles.heading}>Trabajos</h2>
-        <div className={styles.worksRowWrapper}>
-          <button
-            className={styles.arrowBtn}
-            onClick={() => scrollWorksRow("left")}
-          >
-            <ChevronLeft size={24} />
-          </button>
-
-          <motion.div
-            className={styles.worksRow}
-            ref={worksRowRef}
-            drag="x"
-            dragConstraints={{ left: 0, right: 0 }} /* optional framer drag */
-          >
-            {otherItems.map((item, idx) => (
-              <GalleryCard key={idx} {...item} />
-            ))}
-          </motion.div>
-
-          <button
-            className={styles.arrowBtn}
-            onClick={() => scrollWorksRow("right")}
-          >
-            <ChevronRight size={24} />
-          </button>
+        <h3 className={styles.works}>Trabajos</h3>
+        <div className={styles.cardRowScroll} ref={scrollRef}>
+          {allPostUrls.map((url) => (
+            <motion.div
+              key={url}
+              variants={itemVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <blockquote
+                className="instagram-media"
+                data-instgrm-permalink={url}
+                data-instgrm-version="14"
+                style={{ margin: "1rem", maxWidth: "320px" }}
+              ></blockquote>
+            </motion.div>
+          ))}
         </div>
+
+        <button
+          className={`${styles.navButton} ${styles.prev}`}
+          onClick={() => scroll(-300)}
+          aria-label="Prev"
+        >
+          ‹
+        </button>
+        <button
+          className={`${styles.navButton} ${styles.next}`}
+          onClick={() => scroll(300)}
+          aria-label="Next"
+        >
+          ›
+        </button>
       </div>
     </section>
   );
-};
-
-export default GallerySection;
+}
