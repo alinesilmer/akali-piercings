@@ -1,15 +1,15 @@
 "use client";
 
-import type React from "react";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, Menu, X } from "lucide-react";
+
 import Logo from "../../../atoms/Logo/Logo";
 import IconButton from "../../../atoms/IconButton/IconButton";
 import SearchModal from "../SearchModal/SearchModal";
 import ProductModal from "../../Services/ProductModal/ProductModal";
+
 import { useSearch } from "../../../../hooks/useSearch";
 import { useModal } from "../../../../hooks/useModal";
 import {
@@ -17,6 +17,7 @@ import {
   JEWELRY_PRODUCTS,
 } from "../../../../utils/servicesData";
 import type { ProductService } from "../../../../types/product";
+
 import styles from "./Navbar.module.scss";
 
 const Navbar: React.FC = () => {
@@ -26,10 +27,9 @@ const Navbar: React.FC = () => {
   );
   const location = useLocation();
 
-  // Combine all products for search
+  // combine for search
   const allProducts = [...PIERCING_SERVICES, ...JEWELRY_PRODUCTS];
 
-  // Search functionality
   const {
     searchQuery,
     setSearchQuery,
@@ -41,7 +41,6 @@ const Navbar: React.FC = () => {
     hasQuery,
   } = useSearch(allProducts);
 
-  // Product modal
   const {
     isOpen: isProductModalOpen,
     openModal: openProductModal,
@@ -55,16 +54,11 @@ const Navbar: React.FC = () => {
     { path: "/contacto", label: "CONTACTO" },
   ];
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = () => setIsMenuOpen((v) => !v);
 
   const handleProductSelect = (product: ProductService) => {
     setSelectedProduct(product);
     openProductModal();
-  };
-
-  const handleScheduleAppointment = () => {
-    // Handle appointment scheduling logic here
-    console.log("Schedule appointment for:", selectedProduct?.title);
   };
 
   return (
@@ -129,7 +123,6 @@ const Navbar: React.FC = () => {
           isOpen={isProductModalOpen}
           onClose={closeProductModal}
           product={selectedProduct}
-          onScheduleAppointment={handleScheduleAppointment}
         />
       )}
     </>
