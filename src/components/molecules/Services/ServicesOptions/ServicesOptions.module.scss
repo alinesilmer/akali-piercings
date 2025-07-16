@@ -1,0 +1,193 @@
+@import "../../../../styles/mixins.scss";
+
+.ServicesOptions {
+  max-width: 100%;
+  margin: 3rem auto;
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.ServicesOptionsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  gap: 2rem;
+}
+
+.textWrapper {
+    padding-left: 3rem;
+    width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backSquare {
+  display: inline-block;
+  height: 70vh;
+  padding: 3rem 3rem;                       
+  transform: translate(-2rem, -2rem);       
+  border: 1px solid rgba(255, 249, 196, 0.208);  
+}
+
+.frontSquare {
+    height: 60vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2.5rem 5rem;                     
+  border: 1px solid var(--color-primary);  
+  background: transparent;
+}
+
+.title {
+  font-size: clamp(3.4rem, 6vw, 4.1rem);
+  letter-spacing: -0.025em;
+  margin-bottom: 2rem;
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+  white-space: pre-line;
+  text-align: left;
+}
+
+.description {
+    font-size: clamp(0.8rem, 1.4vw, 1.7rem);
+  line-height: 1.5;
+  word-spacing: 3px;
+  color: var(--color-white);
+}
+
+.optionsWrapper {
+    width: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  min-height: 400px;
+  gap: 60px;
+}
+
+.optionProduct {
+  align-self: flex-start;  
+}
+
+
+.optionService {
+  align-self: flex-end;   
+}
+
+
+.optionProduct, .optionService {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: ease-in-out 0.2s  
+}
+
+.optionProduct:hover, .optionService:hover{
+    transform: scale(1.1);
+}
+
+.optionTitle {
+  margin-top: 1rem;
+  font-size: clamp(1rem, 1.5vw, 1.8rem);
+  font-family: var(--font-heading);
+  color: var(--color-white);
+}
+
+/*–––––––––––––––––––––––––––––*/
+/*       Responsive           */
+/*–––––––––––––––––––––––––––––*/
+
+@media (max-width: 1024px) {
+  .ServicesOptions {
+    padding: 2rem 0;
+  }
+
+  .ServicesOptionsContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .textWrapper {
+    padding: 0 1rem;
+    width: 100%;
+  }
+
+  .backSquare {
+    height: auto;
+    padding: 2.5rem 2.5rem;
+    transform: translate(-1.5rem, -1.5rem);
+  }
+
+  .frontSquare {
+    height: auto;
+    padding: 2rem 3rem;
+  }
+
+  .optionsWrapper {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    min-height: auto;
+    gap: 2rem;
+  }
+
+  .optionProduct,
+  .optionService {
+    align-self: center;
+  }
+}
+
+
+/*–––––––––––––––––––––––––––––––––––––––*/
+/* Móvil (≤768px)                        */
+/*–––––––––––––––––––––––––––––––––––––––*/
+@media (max-width: 768px) {
+  .ServicesOptions {
+    padding: 1rem 0 0 2rem;
+  }
+
+  .textWrapper {
+    padding: 0 1rem;
+  }
+
+  .backSquare {
+    padding: 2rem 1.5rem;
+    transform: translate(-1rem, -1rem);
+  }
+
+  .frontSquare {
+    padding: 1.5rem 2rem;
+  }
+
+  .title {
+    font-size: clamp(2.4rem, 5vw, 3.1rem);
+  }
+
+  .description {
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+  }
+
+  .optionsWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .optionProduct,
+  .optionService {
+    align-self: center;
+  }
+
+  .optionTitle {
+    font-size: clamp(0.9rem, 2.5vw, 1.4rem);
+  }
+}

@@ -5,7 +5,7 @@
   border: 2px solid var(--color-primary);
   border-radius: 50%;
   background-color: transparent;
-  color: var(--color-primary);
+  color: var(--color-white);
   font-family: var(--font-heading);
   letter-spacing: 1px;
   
@@ -22,9 +22,9 @@
   }
   
   &.large {
-    width: 150px;
-    height: 150px;
-    font-size: 1.5rem;
+    width: 200px;
+    height: 200px;
+    font-size: 2.5rem;
   }
   
   @include mobile {
@@ -47,5 +47,5 @@
 }
 
 .amount {
-  font-weight: 600;
+  font-weight: 400;
 }

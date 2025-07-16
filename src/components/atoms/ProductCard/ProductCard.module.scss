@@ -62,7 +62,7 @@
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-family: var(--font-body);
-  font-size: 0.8rem;
+  font-size: 1rem;
   font-weight: 600;
   z-index: 2;
 }
@@ -70,11 +70,13 @@
 .saleBadge {
   background-color: #ff6b6b;
   color: white;
+  font-family: var(--font-body);
 }
 
 .newBadge {
   background-color: var(--color-primary);
   color: var(--color-dark);
+  font-family: var(--font-body);
 }
 
 .content {

@@ -18,7 +18,7 @@
 
 .heading {
   text-align: center;
-  font-size: 3rem;
+  font-size: clamp(2.4rem, 5vw, 3.1rem);
   letter-spacing: -0.025em;
   margin-bottom: 3rem;
   font-family: var(--font-heading);

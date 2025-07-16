@@ -5,6 +5,7 @@ import type React from "react";
 import { motion } from "framer-motion";
 import type { ProductService } from "../../../types/product";
 import styles from "./ProductCard.module.scss";
+import notFound from "../../../assets/images/NOTFOUND.png";
 
 interface ProductCardProps {
   product: ProductService;
@@ -34,9 +35,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     >
       <div className={styles.imageContainer}>
         <img
-          src={
-            product.images[0]?.src || "/placeholder.svg?height=300&width=300"
-          }
+          src={product.images[0]?.src || notFound}
           alt={product.title}
           className={styles.image}
         />

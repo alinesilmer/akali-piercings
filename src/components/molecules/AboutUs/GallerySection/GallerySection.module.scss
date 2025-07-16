@@ -21,11 +21,11 @@
 
 .verticalTitle {
   position: absolute;
-  top: 75%;
+  top: 70%;
   left: -3rem;
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: left top;
-  font-size: 4rem;
+  font-size: clamp(2.4rem, 5vw, 3.1rem);
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--color-white);
@@ -34,6 +34,7 @@
 }
 
 .rightPane {
+  width: 50%;
   margin-left: 3rem;
   display: flex;              
   flex-direction: column;
@@ -98,15 +99,17 @@
   top: 75%;
   transform: translateY(-50%);
   background: none;
-  border: none;
+  width: 50px;
   color: var(--color-white);
   font-size: 2rem;
+  border-radius: 50%;
+    border: 1px solid var(--color-white);
   cursor: pointer;
   z-index: 2;
   padding: 0.25rem;
   transition: color 0.2s;
 
-  &:hover:not(:disabled) { color: var(--color-primary); }
+  &:hover:not(:disabled) { color: var(--color-primary); border-color: var(--color-primary)  }
   &:disabled { opacity: 0.3; cursor: default; }
 }
 .prev { left: 1.5rem; }  

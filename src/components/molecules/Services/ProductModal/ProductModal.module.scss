@@ -13,6 +13,19 @@
   }
 }
 
+.priceServiceWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.serviceDetailsWrapper{
+  display: flex;
+  flex-direction: column;
+}
+
 .gallerySection {
   display: flex;
   gap: 1rem;

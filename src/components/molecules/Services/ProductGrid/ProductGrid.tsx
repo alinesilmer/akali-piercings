@@ -37,11 +37,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({
     openModal();
   };
 
-  const handleScheduleAppointment = () => {
-    // Handle appointment scheduling logic here
-    console.log("Schedule appointment for:", selectedProduct?.title);
-  };
-
   return (
     <section className={styles.productGrid}>
       <div className={styles.container}>
@@ -93,7 +88,6 @@ const ProductGrid: React.FC<ProductGridProps> = ({
           isOpen={isOpen}
           onClose={closeModal}
           product={selectedProduct}
-          onScheduleAppointment={handleScheduleAppointment}
         />
       )}
     </section>

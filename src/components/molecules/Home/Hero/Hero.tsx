@@ -5,7 +5,7 @@ import type React from "react";
 import { motion } from "framer-motion";
 import Button from "../../../atoms/Button/Button";
 import styles from "./Hero.module.scss";
-import HeroImage from "../../../../assets/images/HERO.png";
+import HeroImage from "../../../../assets/images/HERO.jpg";
 
 interface HeroProps {
   backgroundImage?: string;

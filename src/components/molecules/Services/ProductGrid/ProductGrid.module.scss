@@ -30,7 +30,7 @@
 
 .title {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: clamp(2.4rem, 5vw, 3.1rem);
   color: var(--color-white);
   letter-spacing: 3px;
   margin-bottom: 1rem;
@@ -42,11 +42,11 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 260px));
   gap: 2rem;
   
   @include mobile {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(180px, 180px));
     gap: 1.5rem;
   }
 }

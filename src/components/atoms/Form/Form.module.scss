@@ -10,14 +10,12 @@
   background: var(--color-dark);
 }
 
-/* Reduce padding on mobile */
 @media (max-width: 640px) {
   .wrapper {
     padding: 1.5rem;
   }
 }
 
-/* Tablet breakpoint */
 @media (max-width: 1024px) {
   .wrapper {
     max-width: 100%;
@@ -44,7 +42,6 @@
   gap: 1.8rem;
 }
 
-/* Fila de dos columnas, colapsa a 1 en pantallas estrechas */
 .row {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -55,7 +52,6 @@
   }
 }
 
-/* Grupo etiqueta + campo */
 .formGroup {
   display: flex;
   flex-direction: column;
@@ -68,7 +64,6 @@
   color: var(--color-primary);
 }
 
-/* Campos de entrada */
 $form-border: 1px solid var(--color-primary);
 
 .formGroup input,
@@ -90,10 +85,47 @@ $form-border: 1px solid var(--color-primary);
   }
 }
 
-/* Botón enviado desde tu Button component, no toca aquí. */
+.buttonWrapper{
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 2rem;
+text-align: center;
+}
+
+.sendButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 250px;
+
+  padding: 0.75rem 2rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--color-white);
+
+  background: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+}
+
+.sendButton:hover {
+  background: var(--color-primary);
+  color: var(--color-bg-dark);
+}
+
+.sendButton:active {
+  transform: scale(0.97);
+}
+
 .sendIcon {
-  width: 1.1rem;
-  height: 1.1rem;
+  width: 1em;
+  height: 1em;
+  stroke: currentColor;
 }
 
 /* ─── Pop-up de éxito ─── */
@@ -120,5 +152,22 @@ $form-border: 1px solid var(--color-primary);
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (max-width: 1024px) {
+  .sendButton {
+    width: 200px;
+    gap: 0.4rem;
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sendButton {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    padding: 0.8rem 0;
+    font-size: clamp(0.9rem, 3vw, 1rem);
   }
 }

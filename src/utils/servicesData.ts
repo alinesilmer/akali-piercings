@@ -1,20 +1,42 @@
-import type { ProductService } from "../types/product"
+import type { ProductService, Category } from "../types/product"
+// src/utils/servicesData.ts
+import eyebrow from "../assets/images/Ceja.svg";
+import lips from "../assets/images/Labial.svg";
+import ear from "../assets/images/Ombligo.svg";
+import nose from "../assets/images/Nariz.svg";
+import tongue from "../assets/images/Lengua.svg";
 
-export const PIERCING_CATEGORIES = [
-  { id: "nose", name: "Nariz", icon: "nose" },
-  { id: "lips", name: "Labios", icon: "lips" },
-  { id: "ear", name: "Oreja", icon: "ear" },
-  { id: "eyebrow", name: "Ceja", icon: "eyebrow" },
-  { id: "tongue", name: "Lengua", icon: "tongue" },
-]
+// PIERCING
+export const PIERCING_CATEGORIES: Category[] = [
+  { id: "nose",     name: "Nariz",  icon: nose },
+  { id: "lips",     name: "Labios", icon: lips },
+  { id: "ear",      name: "Oreja",  icon: ear },
+  { id: "eyebrow",  name: "Ceja",   icon: eyebrow },
+  { id: "tongue",   name: "Lengua", icon: tongue },
+];
 
-export const JEWELRY_CATEGORIES = [
-  { id: "rings", name: "Anillos", icon: "circle" },
-  { id: "necklaces", name: "Collares", icon: "necklace" },
-  { id: "sets", name: "Sets", icon: "rings" },
-  { id: "earrings", name: "Aretes", icon: "earrings" },
-  { id: "horseshoe", name: "Herradura", icon: "horseshoe" },
-]
+// JEWELRY
+import ring from "../assets/images/Anillo.svg";
+import necklace from "../assets/images/Collar.svg";
+import earrings from "../assets/images/Aros.svg";
+import piercing from "../assets/images/Piercing.svg";
+import bracelet from "../assets/images/Pulsera.svg";
+
+export const JEWELRY_CATEGORIES: Category[] = [
+  { id: "rings",     name: "Anillos",    icon: ring },
+  { id: "necklaces", name: "Collares",   icon: necklace },
+  { id: "sets",      name: "Sets",       icon: piercing },
+  { id: "earrings",  name: "Aretes",     icon: earrings },
+  { id: "horseshoe", name: "Herradura",  icon: bracelet },
+];
+
+import Septum from "../assets/images/clients/client3.jpeg"; 
+import nostrile from "../assets/images/clients/client4.jpeg";
+import nostrile2 from "../assets/images/clients/client4-1.jpeg";
+import industrial from "../assets/images/clients/client8.jpeg";
+import navel from "../assets/images/clients/client7.jpeg";
+import labret from "../assets/images/clients/client5.jpeg";
+import eyebrows from "../assets/images/clients/client2.jpeg";
 
 export const PIERCING_SERVICES: ProductService[] = [
   {
@@ -27,10 +49,18 @@ export const PIERCING_SERVICES: ProductService[] = [
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
     images: [
-      { id: "main", src: "/images/nostril-main.png", alt: "Piercing nostrile", type: "main" },
-      { id: "thumb1", src: "/images/nostril-thumb-1.png", alt: "Vista lateral", type: "result" },
-      { id: "thumb2", src: "/images/nostril-thumb-2.png", alt: "Vista frontal", type: "result" },
-      { id: "thumb3", src: "/images/nostril-thumb-3.png", alt: "Joyería", type: "product" },
+      {
+        id: "main",
+        src: nostrile,              
+        alt: "Piercing Smiley",    
+        type: "main"
+      },
+      {
+        id: "secondary",
+        src: nostrile2,              
+        alt: "Piercing Smiley",    
+        type: "main"
+      }
     ],
     categoryId: "nose",
   },
@@ -43,7 +73,8 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Piercing smiley", type: "main" }],
+     images: [
+      ],
     categoryId: "lips",
   },
   {
@@ -54,7 +85,12 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Piercing septum", type: "main" }],
+    images: [{
+        id: "main",
+        src: Septum,              
+        alt: "Piercing Smiley",    
+        type: "main"
+      }],
     categoryId: "nose",
   },
   {
@@ -66,7 +102,12 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Piercing industrial", type: "main" }],
+    images: [{
+        id: "main",
+        src: industrial,              
+        alt: "Piercing Smiley",    
+        type: "main"
+      }],
     categoryId: "ear",
   },
   {
@@ -78,7 +119,12 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Piercing labret", type: "main" }],
+    images: [{
+        id: "main",
+        src: labret,              
+        alt: "Piercing Smiley",    
+        type: "main"
+      }],
     categoryId: "lips",
   },
   {
@@ -90,7 +136,12 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Piercing navel", type: "main" }],
+    images: [{
+        id: "main",
+        src: navel,              
+        alt: "Piercing Smiley",    
+        type: "main"
+      }],
     categoryId: "body",
     isOnSale: true,
   },
@@ -102,7 +153,12 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Piercing ceja", type: "main" }],
+    images: [{
+        id: "main",
+        src: eyebrows,              
+        alt: "Piercing Smiley",    
+        type: "main"
+      }],
     categoryId: "eyebrow",
   },
 ]
@@ -116,7 +172,7 @@ export const JEWELRY_PRODUCTS: ProductService[] = [
     currency: "$",
     category: "jewelry",
     features: ["Acero quirúrgico", "Cristales de alta calidad", "Hipoalergénico"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Anillo Anna", type: "main" }],
+    images: [],
     categoryId: "rings",
   },
   {
@@ -127,7 +183,7 @@ export const JEWELRY_PRODUCTS: ProductService[] = [
     currency: "$",
     category: "jewelry",
     features: ["Acero quirúrgico", "Diseños variados", "Hipoalergénico"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Set de anillos", type: "main" }],
+    images: [],
     categoryId: "sets",
   },
   {
@@ -138,7 +194,7 @@ export const JEWELRY_PRODUCTS: ProductService[] = [
     currency: "$",
     category: "jewelry",
     features: ["Acero quirúrgico", "Diseño exclusivo", "Hipoalergénico"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Anillo Snake", type: "main" }],
+    images: [],
     categoryId: "rings",
     isNew: true,
   },
@@ -150,7 +206,7 @@ export const JEWELRY_PRODUCTS: ProductService[] = [
     currency: "$",
     category: "jewelry",
     features: ["Acero quirúrgico", "Diseño ondulado", "Hipoalergénico"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Anillo Waves", type: "main" }],
+    images: [],
     categoryId: "rings",
   },
   {
@@ -161,7 +217,7 @@ export const JEWELRY_PRODUCTS: ProductService[] = [
     currency: "$",
     category: "jewelry",
     features: ["Acero quirúrgico", "Diseño lunar", "Hipoalergénico"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Anillo Moon", type: "main" }],
+    images: [],
     categoryId: "rings",
   },
   {
@@ -173,7 +229,7 @@ export const JEWELRY_PRODUCTS: ProductService[] = [
     currency: "$",
     category: "jewelry",
     features: ["Acero quirúrgico", "Cristales coloridos", "Hipoalergénico"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Anillo Summer", type: "main" }],
+    images: [],
     categoryId: "rings",
     isOnSale: true,
   },
@@ -185,7 +241,7 @@ export const JEWELRY_PRODUCTS: ProductService[] = [
     currency: "$",
     category: "jewelry",
     features: ["Acero quirúrgico", "Diseño a juego", "Hipoalergénico"],
-    images: [{ id: "main", src: "/placeholder.svg?height=400&width=400", alt: "Par de anillos", type: "main" }],
+    images: [],
     categoryId: "rings",
   },
 ]

@@ -1,7 +1,6 @@
 "use client";
 
 import type React from "react";
-
 import { motion } from "framer-motion";
 import Modal from "../../../atoms/Modal/Modal";
 import ImageThumbnail from "../../../atoms/ImageThumbnail/ImageThumbnail";
@@ -11,25 +10,29 @@ import Logo from "../../../atoms/Logo/Logo";
 import { useImageGallery } from "../../../../hooks/useImageGallery";
 import type { ProductService } from "../../../../types/product";
 import styles from "./ProductModal.module.scss";
+import notFound from "../../../../assets/images/NOTFOUND.png";
 
 interface ProductModalProps {
   isOpen: boolean;
   onClose: () => void;
   product: ProductService;
-  onScheduleAppointment?: () => void;
 }
+
+const WHATSAPP_NUMBER = "543794532535";
+const WHATSAPP_TEXT = "¡Hola! Quiero agendar un turno para el servicio: ";
 
 const ProductModal: React.FC<ProductModalProps> = ({
   isOpen,
   onClose,
   product,
-  onScheduleAppointment,
 }) => {
   const images = product.images.map((img) => img.src);
   const { selectedIndex, selectedImage, selectImage } = useImageGallery(images);
 
   const handleSchedule = () => {
-    onScheduleAppointment?.();
+    const text = encodeURIComponent(WHATSAPP_TEXT + product.title);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    window.open(url, "_blank");
     onClose();
   };
 
@@ -42,7 +45,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
             {product.images.map((image, index) => (
               <ImageThumbnail
                 key={image.id}
-                src={image.src || "/placeholder.svg"}
+                src={image.src || notFound}
                 alt={image.alt}
                 isSelected={index === selectedIndex}
                 onClick={() => selectImage(index)}
@@ -83,32 +86,34 @@ const ProductModal: React.FC<ProductModalProps> = ({
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h1 className={styles.title}>{product.title}</h1>
-
             <p className={styles.description}>{product.description}</p>
 
             <div className={styles.serviceSection}>
-              <h2 className={styles.serviceTitle}>SERVICIO</h2>
-              <ul className={styles.featureList}>
-                {product.features.map((feature, index) => (
-                  <motion.li
-                    key={index}
-                    className={styles.feature}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
-                  >
-                    {feature}
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-
-            <div className={styles.priceSection}>
-              <PriceTag
-                price={product.price}
-                currency={product.currency}
-                size="medium"
-              />
+              <div className={styles.priceServiceWrapper}>
+                <div className={styles.serviceDetailsWrapper}>
+                  <h2 className={styles.serviceTitle}>SERVICIO</h2>
+                  <ul className={styles.featureList}>
+                    {product.features.map((feature, index) => (
+                      <motion.li
+                        key={index}
+                        className={styles.feature}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+                      >
+                        {feature}
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+                <div className={styles.priceSection}>
+                  <PriceTag
+                    price={product.price}
+                    currency={product.currency}
+                    size="large"
+                  />
+                </div>
+              </div>
             </div>
 
             <motion.div

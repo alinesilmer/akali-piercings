@@ -120,7 +120,7 @@
 
 .faqTitle {
   font-family: var(--font-heading);
-  font-size: 3rem;
+  font-size: clamp(2.4rem, 5vw, 3.1rem);
   color: var(--color-white);
   letter-spacing: 3px;
   margin-bottom: 1rem;

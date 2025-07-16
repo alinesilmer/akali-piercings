@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import styles from "./Form.module.scss";
-import Button from "../Button/Button";
 
 const WHATSAPP_NUMBER = "5493794532535";
 
@@ -94,9 +93,12 @@ const Form: React.FC = () => {
           </div>
 
           {/* ───── Botón ───── */}
-          <Button variant="outline" size="medium" type="submit">
-            Enviar <Send className={styles.sendIcon} />
-          </Button>
+          <div className={styles.buttonWrapper}>
+            <button type="submit" className={styles.sendButton}>
+              Enviar
+              <Send className={styles.sendIcon} />
+            </button>
+          </div>
         </form>
       </motion.section>
     </>

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import styles from "./Contact.module.scss";
 import GeneralHero from "../../components/molecules/ui/GeneralHero/GeneralHero";
 import Line from "../../components/molecules/ui/Line/Line";
-import HeroImage from "../../assets/images/ContactHero.png";
+import HeroImage from "../../assets/images/ContactHero.jpg";
 import DataContact from "../../components/molecules/Contact/DataContact/DataContact";
 import FormContact from "../../components/molecules/Contact/FormContact/FormContact";
 
@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
           isVideo={false}
           textTop="Siempre cerca, acompañamos"
           textTopBottom="cada paso"
-          titleTop="DATOS"
+          titleTop="UBICACIÓN"
           titleEs="&"
           titleBottom="CONTACTO"
           textBottomTop="Aquí para vos,"
