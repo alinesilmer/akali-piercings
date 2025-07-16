@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Frame from "../../../atoms/Frame/Frame";
@@ -29,16 +29,58 @@ const recentPostUrls = [
   "https://www.instagram.com/p/DK4kxYmxZA4/",
   "https://www.instagram.com/p/DKPpjFyRHx3/",
 ];
-
 const allPostUrls = [
-  "https://www.instagram.com/p/DK4lEzAx5Aq/?img_index=1",
-  "https://www.instagram.com/p/DK4kxYmxZA4/",
-  "https://www.instagram.com/p/DKPpjFyRHx3/",
+  ...recentPostUrls,
   "https://www.instagram.com/p/DDcKPvAJ7We/?img_index=1",
   "https://www.instagram.com/p/DJwXnBWRcMl/",
 ];
 
+function InstagramEmbed({ url }: { url: string }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    if (!window.instgrm?.Embeds?.process) return;
+
+    // trigger IG embed parsing
+    window.instgrm.Embeds.process();
+
+    // Poll until the iframe appears, then listen for its load
+    const interval = setInterval(() => {
+      const iframe = containerRef.current?.querySelector("iframe");
+      if (iframe) {
+        iframe.addEventListener("load", () => {
+          setLoaded(true);
+        });
+        clearInterval(interval);
+      }
+    }, 200);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        // hide the embed until the iframe is fully loaded
+        visibility: loaded ? "visible" : "hidden",
+        // preserve some height so layout doesn't jump
+        minHeight: "300px",
+      }}
+    >
+      <blockquote
+        className="instagram-media"
+        data-instgrm-permalink={url}
+        data-instgrm-version="14"
+        style={{ margin: 0 }}
+      />
+    </div>
+  );
+}
+
 export default function GallerySection() {
+  // responsive logic
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
@@ -54,6 +96,7 @@ export default function GallerySection() {
   const maxIndex = allPostUrls.length - visibleCount;
   const [index, setIndex] = useState(0);
 
+  // re-process embeds whenever the slice changes
   useEffect(() => {
     if (window.instgrm?.Embeds?.process) window.instgrm.Embeds.process();
   }, [index, width]);
@@ -84,12 +127,7 @@ export default function GallerySection() {
               variants={itemVariants}
               className={styles.frame}
             >
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={url}
-                data-instgrm-version="14"
-                style={{ margin: 0 }}
-              />
+              <InstagramEmbed url={url} />
             </motion.div>
           ))}
         </motion.div>
@@ -107,12 +145,7 @@ export default function GallerySection() {
               variants={itemVariants}
               className={styles.frame}
             >
-              <blockquote
-                className="instagram-media"
-                data-instgrm-permalink={url}
-                data-instgrm-version="14"
-                style={{ margin: 0 }}
-              />
+              <InstagramEmbed url={url} />
             </motion.div>
           ))}
         </motion.div>

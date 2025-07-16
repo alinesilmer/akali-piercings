@@ -48,19 +48,23 @@ const Services: React.FC = () => {
 
       <Line />
 
-      <ProductGrid
-        title="SERVICIOS DE PIERCING"
-        products={PIERCING_SERVICES}
-        categories={PIERCING_CATEGORIES}
-      />
+      <section id="servicios">
+        <ProductGrid
+          title="SERVICIOS DE PIERCING"
+          products={PIERCING_SERVICES}
+          categories={PIERCING_CATEGORIES}
+        />
+      </section>
 
       <Line />
 
-      <ProductGrid
-        title="JOYERÍA Y ACCESORIOS"
-        products={JEWELRY_PRODUCTS}
-        categories={JEWELRY_CATEGORIES}
-      />
+      <section id="productos">
+        <ProductGrid
+          title="JOYERÍA Y ACCESORIOS"
+          products={JEWELRY_PRODUCTS}
+          categories={JEWELRY_CATEGORIES}
+        />
+      </section>
     </motion.div>
   );
 };

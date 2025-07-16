@@ -117,7 +117,6 @@
   }
 
   .textWrapper {
-    padding: 0 1rem;
     width: 100%;
   }
 
@@ -152,28 +151,21 @@
 /*–––––––––––––––––––––––––––––––––––––––*/
 @media (max-width: 768px) {
   .ServicesOptions {
-    padding: 1rem 0 0 2rem;
-  }
-
-  .textWrapper {
-    padding: 0 1rem;
+    padding: 1rem 0;
   }
 
   .backSquare {
-    padding: 2rem 1.5rem;
     transform: translate(-1rem, -1rem);
-  }
-
-  .frontSquare {
-    padding: 1.5rem 2rem;
   }
 
   .title {
     font-size: clamp(2.4rem, 5vw, 3.1rem);
+    text-align: center;
   }
 
   .description {
     font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+    text-align: center;
   }
 
   .optionsWrapper {

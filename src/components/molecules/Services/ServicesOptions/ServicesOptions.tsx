@@ -5,6 +5,13 @@ import ProductOption2 from "../../../../assets/images/ProductsOption.jpg";
 import ProductOption from "../../../../assets/images/ProductsOption2.jpg";
 
 const ServicesOptions = () => {
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <div className={styles.ServicesOptions}>
       <motion.div
@@ -28,11 +35,19 @@ const ServicesOptions = () => {
           </div>
         </div>
         <div className={styles.optionsWrapper}>
-          <div className={styles.optionProduct}>
+          <div
+            className={styles.optionProduct}
+            onClick={() => scrollTo("productos")}
+            style={{ cursor: "pointer" }}
+          >
             <Frame src={ProductOption} size={250} height={300} />
             <span className={styles.optionTitle}>PRODUCTOS</span>
           </div>
-          <div className={styles.optionService}>
+          <div
+            className={styles.optionService}
+            onClick={() => scrollTo("servicios")}
+            style={{ cursor: "pointer" }}
+          >
             <Frame src={ProductOption2} size={250} height={300} />
             <span className={styles.optionTitle}>SERVICIOS</span>
           </div>

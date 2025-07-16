@@ -46,8 +46,11 @@
   gap: 2rem;
   
   @include mobile {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 180px));
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
     gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
   }
 }
 

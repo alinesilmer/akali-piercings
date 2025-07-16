@@ -49,8 +49,8 @@
   @include mobile {
     &.large,
     &.fullscreen {
-      width: 95vw;
-      height: 85vh;
+      width: 85vw;
+      height: 75vh;
       max-width: none;
     }
   }
