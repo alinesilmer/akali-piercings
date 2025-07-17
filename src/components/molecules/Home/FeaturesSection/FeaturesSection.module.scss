@@ -61,7 +61,7 @@
   padding: 4rem 2rem;
   display: flex;
   flex-direction: column;
-  @include flex-center;
+  @include m.flex-center;
 
   @media (max-width: 1024px) {
     padding: 3.5rem 2rem;

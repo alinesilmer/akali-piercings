@@ -1,4 +1,3 @@
-@import '../../../styles/mixins.scss';
 
 .modalOverlay {
   position: fixed;
@@ -7,11 +6,11 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  @include flex-center;
+  @include m.flex-center;
   z-index: 1000;
   padding: 2rem;
   
-  @include mobile {
+  @include m.mobile {
     padding: 1rem;
   }
 }
@@ -46,7 +45,7 @@
     max-height: none;
   }
   
-  @include mobile {
+  @include m.mobile {
     &.large,
     &.fullscreen {
       width: 85vw;

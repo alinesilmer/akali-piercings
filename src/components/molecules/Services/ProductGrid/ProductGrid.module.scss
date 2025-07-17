@@ -1,10 +1,9 @@
-@import '../../../../styles/mixins.scss';
 
 .productGrid {
   background-color: var(--color-dark);
   padding: 4rem 0;
   
-  @include mobile {
+  @include m.mobile {
     padding: 3rem 0;
   }
 }
@@ -14,7 +13,7 @@
   margin: 0 auto;
   padding: 0 2rem;
   
-  @include mobile {
+  @include m.mobile {
     padding: 0 1rem;
   }
 }
@@ -23,7 +22,7 @@
   text-align: center;
   margin-bottom: 3rem;
   
-  @include mobile {
+  @include m.mobile {
     margin-bottom: 2rem;
   }
 }
@@ -35,7 +34,7 @@
   letter-spacing: 3px;
   margin-bottom: 1rem;
   
-  @include mobile {
+  @include m.mobile {
     font-size: 2.5rem;
   }
 }
@@ -45,7 +44,7 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 260px));
   gap: 2rem;
   
-  @include mobile {
+  @include m.mobile {
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(150px, 150px));
     gap: 1.5rem;

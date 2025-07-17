@@ -1,7 +1,7 @@
-@import "../../../../styles/mixins.scss";
+
 
 .section {
-  @include flex-center;
+  @include m.flex-center;
   flex-direction: column;
   gap: 3rem;
   width: 100%;

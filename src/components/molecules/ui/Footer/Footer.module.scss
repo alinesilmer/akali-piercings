@@ -1,4 +1,4 @@
-@import '../../../../styles/mixins.scss';
+
 
 .footer {
   background-color: var(--color-dark);
@@ -18,7 +18,7 @@
     margin-bottom: 0.5rem;
     font-style: italic;
     
-    @include mobile {
+    @include m.mobile {
       font-size: 1rem;
     }
   }
@@ -43,7 +43,7 @@
     gap: 4rem;
     align-items: start;
     
-    @include tablet {
+    @include m.tablet {
       grid-template-columns: 1fr;
       gap: 3rem;
       text-align: center;
@@ -59,7 +59,7 @@
     margin-bottom: 2rem;
     letter-spacing: 2px;
     
-    @include mobile {
+    @include m.mobile {
       font-size: 1.3rem;
     }
   }
@@ -101,7 +101,7 @@
     line-height: 0.9;
     letter-spacing: 3px;
     
-    @include mobile {
+    @include m.mobile {
       font-size: 2.2rem;
     }
   }
@@ -115,11 +115,11 @@
     margin-bottom: 2rem;
     letter-spacing: 2px;
     
-    @include tablet {
+    @include m.tablet {
       text-align: center;
     }
     
-    @include mobile {
+    @include m.mobile {
       font-size: 1.3rem;
     }
   }
@@ -135,7 +135,7 @@
     align-items: flex-start;
     gap: 1rem;
     
-    @include tablet {
+    @include m.tablet {
       justify-content: center;
     }
   }
@@ -154,7 +154,7 @@
     color: var(--color-secondary);
     line-height: 1.4;
     
-    @include mobile {
+    @include m.mobile {
       font-size: 0.9rem;
     }
   }
@@ -171,7 +171,7 @@
     margin-bottom: 2rem;
     letter-spacing: 2px;
     
-    @include mobile {
+    @include m.mobile {
       font-size: 1.1rem;
     }
   }
@@ -200,7 +200,7 @@
 }
 
 // Responsive adjustments
-@include mobile {
+@include m.mobile {
   .footer {
     padding: 3rem 0 1.5rem;
   }

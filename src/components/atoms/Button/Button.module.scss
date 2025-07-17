@@ -1,14 +1,12 @@
-@import '../../../styles/mixins.scss';
-
 .button {
-  @include button-base;
+  @include m.button-base;
   
   &.primary {
-    @include button-primary;
+    @include m.button-primary;
   }
   
   &.secondary {
-    @include button-secondary;
+    @include m.button-secondary;
   }
   
   &.outline {

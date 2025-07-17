@@ -139,7 +139,7 @@ button {
 }
 
 @mixin button-primary {
-  @include button-base;
+  @include m.button-base;
   background:       transparent;
   color:            var(--color-primary);
   border:           2px solid var(--color-primary);
@@ -151,7 +151,7 @@ button {
 }
 
 @mixin button-secondary {
-  @include button-base;
+  @include m.button-base;
   background:       var(--color-primary);
   color:            var(--color-dark);
   border:           2px solid var(--color-primary);

@@ -1,7 +1,6 @@
-@import '../../../styles/mixins.scss';
 
 .priceTag {
-  @include flex-center;
+  @include m.flex-center;
   border: 2px solid var(--color-primary);
   border-radius: 50%;
   background-color: transparent;
@@ -27,7 +26,7 @@
     font-size: 2.5rem;
   }
   
-  @include mobile {
+  @include m.mobile {
     &.medium {
       width: 100px;
       height: 100px;

@@ -1,8 +1,8 @@
-@import "../../../../styles/mixins.scss";
+
 
 /* ---------- Contenedor principal ---------- */
 .wrapper {
-  @include flex-center;
+  @include m.flex-center;
   flex-direction: row;
   border-radius: 6px;
   padding: 2.5rem 1rem;

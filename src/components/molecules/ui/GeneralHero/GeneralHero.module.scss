@@ -1,4 +1,4 @@
-@import '../../../../styles/globals.scss';
+
 
 .hero {
   display: flex;
@@ -6,7 +6,7 @@
   background-color: var(--color-dark);
   color: var(--color-white);
 
-  @include mobile {
+  @include m.mobile {
     flex-direction: column;
     min-height: auto;
   }
@@ -18,7 +18,7 @@
   overflow: hidden;
   border-right: solid 1px var(--color-primary);
 
-  @include mobile {
+  @include m.mobile {
     flex: 0 0 auto;
     width: 100%;
     height: fit-content;
@@ -42,7 +42,7 @@
   margin-top: 3rem;
   text-align: left;
 
-  @include mobile {
+  @include m.mobile {
     padding: 2rem;
     text-align: center;
     justify-content: flex-start;
@@ -60,7 +60,7 @@
   line-height: 1.4;
   color: var(--color-secondary); 
 
-  @include mobile {
+  @include m.mobile {
     display: none;
   }
 }
@@ -84,7 +84,7 @@
   text-align: center;
    align-self: flex-start;
 
-  @include mobile {
+  @include m.mobile {
     font-size: 3rem;
     align-self: center;
   }
@@ -101,7 +101,7 @@
   text-align: left;
    align-self: flex-end;
 
-  @include mobile {
+  @include m.mobile {
     font-size: 3rem;
     align-self: center;
   }
@@ -116,7 +116,7 @@
     vertical-align: middle;
     margin: -1rem 1rem;
 
-    @include mobile {
+    @include m.mobile {
       font-size: 1.5rem;
       margin-left: 0.5rem;
       align-self: center;
@@ -130,7 +130,7 @@
   line-height: 1.4;
   color: var(--color-secondary); 
 
-  @include mobile {
+  @include m.mobile {
     display: none;
   }
 }

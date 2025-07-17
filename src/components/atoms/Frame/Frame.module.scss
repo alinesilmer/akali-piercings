@@ -1,8 +1,7 @@
-// src/atoms/Frame/Frame.module.scss
-@import '../../../styles/mixins.scss';
+
 
 .frame {
-  @include flex-center;
+  @include m.flex-center;
   position: relative;
   width: 100%;
   height: 100%;

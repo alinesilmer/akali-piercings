@@ -1,4 +1,4 @@
-@import "../../../styles/mixins.scss";
+
 
 /* ==== CONTENEDOR ==== */
 .cardWrapper {
@@ -75,7 +75,7 @@
 
 /* ==== CARA TRASERA ==== */
 .cardBack {
-  @include flex-center;
+  @include m.flex-center;
   padding: 2rem;
   transform: rotateY(180deg);
   text-align: center;

@@ -1,4 +1,3 @@
-@import '../../../styles/mixins.scss';
 
 .categoryFilter {
   display: flex;
@@ -8,7 +7,7 @@
   padding: 2rem 0;
   border-bottom: 1px solid rgba(194, 180, 138, 0.3);
 
-  @include mobile {
+  @include m.mobile {
      display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
     gap: 0.3rem;
@@ -37,13 +36,13 @@
     border-color: var(--color-primary);
   }
 
-  @include mobile {
+  @include m.mobile {
     flex-shrink: 0;
   }
 }
 
 .iconContainer {
-  @include flex-center;
+  @include m.flex-center;
   width: 70px;
   height: 70px;
   transition: var(--transition);
@@ -55,7 +54,7 @@
     object-fit: contain;
   }
 
-  @include mobile {
+  @include m.mobile {
     display: flex;
     width: 50px;
     height: 50px;
