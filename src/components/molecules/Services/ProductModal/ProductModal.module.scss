@@ -80,6 +80,8 @@
   flex: 1;
   border-radius: 12px;
   overflow: hidden;
+  max-height: 83vh;
+  max-width: 1500px;
 
   img {
     width: 100%;
@@ -216,11 +218,16 @@
 }
 
 .actionSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
   text-align: center;
   padding-bottom: 2rem;
 
   @include mobile {
     padding-bottom: 1rem;
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 

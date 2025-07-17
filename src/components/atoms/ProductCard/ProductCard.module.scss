@@ -19,6 +19,10 @@
       transform: scale(1.05);
     }
   }
+
+  @include mobile {
+    max-height: 250px;
+  }
 }
 
 .imageContainer {

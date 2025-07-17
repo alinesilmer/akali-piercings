@@ -2,9 +2,9 @@
 
 .gallerySection {
   display: flex;
-  justify-content: center;      /* centramos todo el conjunto */
+  justify-content: center;      
   align-items: flex-start;
-  gap: 4rem;                    /* separación pareja img ↔ galería */
+  gap: 4rem;                    
   width: 100%;
   padding: 4rem 0;
   background: var(--color-bg-dark);
@@ -117,7 +117,6 @@
 
 /* ---------- TABLET (≤ 1024 px) ---------- */
 @media (max-width: 1024px) {
-  /* Se apila la sección y se reducen los espacios */
   .gallerySection {
     flex-direction: column;
     align-items: center;

@@ -33,7 +33,9 @@
 
 .contactContent {
   flex: 1;
-  @include flex-center;
+  display: flex;
+    align-items: center;
+    justify-content: center;
   padding: 3rem 2rem;
   text-align: center;
   padding-top: 8rem;
@@ -89,7 +91,9 @@
 .faqSide {
   background-color: var(--color-dark);
   padding: 4rem 2rem;
-  @include flex-center;
+  display: flex;
+    align-items: center;
+    justify-content: center;
 
   @media (max-width: 1024px) {
     padding: 0rem 2rem;

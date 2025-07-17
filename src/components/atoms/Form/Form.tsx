@@ -22,7 +22,7 @@ const Form: React.FC = () => {
 
     /* Texto para WhatsApp */
     const text = [
-      `👋 Hola, soy ${name}.`,
+      `👋 Hola Luz, soy ${name}.`,
       email ? `📧 ${email}` : "",
       phone ? `📞 ${phone}` : "",
       motive ? `📝 Motivo: ${motive}` : "",

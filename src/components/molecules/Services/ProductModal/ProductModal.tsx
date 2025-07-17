@@ -19,7 +19,8 @@ interface ProductModalProps {
 }
 
 const WHATSAPP_NUMBER = "543794532535";
-const WHATSAPP_TEXT = "¡Hola! Quiero agendar un turno para el servicio: ";
+const WHATSAPP_TEXT = "¡Hola, Luz! Quiero agendar un turno para el servicio: ";
+const WHATSAPP_TEXT_CHANGE = "¡Hola, Luz! Quiero cambiar la pieza de: ";
 
 const ProductModal: React.FC<ProductModalProps> = ({
   isOpen,
@@ -31,6 +32,13 @@ const ProductModal: React.FC<ProductModalProps> = ({
 
   const handleSchedule = () => {
     const text = encodeURIComponent(WHATSAPP_TEXT + product.title);
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+    window.open(url, "_blank");
+    onClose();
+  };
+
+  const handleScheduleChange = () => {
+    const text = encodeURIComponent(WHATSAPP_TEXT_CHANGE + product.title);
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
     window.open(url, "_blank");
     onClose();
@@ -124,6 +132,13 @@ const ProductModal: React.FC<ProductModalProps> = ({
             >
               <Button variant="outline" size="large" onClick={handleSchedule}>
                 AGENDAR TURNO
+              </Button>
+              <Button
+                variant="outline"
+                size="large"
+                onClick={handleScheduleChange}
+              >
+                CAMBIO DE PIEZA
               </Button>
             </motion.div>
           </motion.div>
