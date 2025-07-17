@@ -1,6 +1,5 @@
 
 
-/* ==== SECCIÓN ==== */
 .testimonialsSection {
   background-color: var(--color-dark);
   padding: 6rem 2rem;
@@ -17,7 +16,6 @@
     margin: 0 auto;
   }
 
-  /* ==== CABECERA ==== */
   .header {
     text-align: center;
     margin-bottom: 4rem;
@@ -67,7 +65,6 @@
     }
   }
 
-  /* ==== CARRUSEL & NAVEGACIÓN ==== */
 
   .carouselWrapper{
      position: relative;
@@ -116,7 +113,6 @@
     }
   }
 
-  /* ==== GRID DE TESTIMONIOS ==== */
   .testimonialsGrid {
     display: grid;
     gap: 2rem;
@@ -157,7 +153,6 @@
     }
   }
 
-  /* ==== INDICADORES ==== */
   .indicators {
     display: flex;
     justify-content: center;

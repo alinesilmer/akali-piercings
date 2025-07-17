@@ -17,7 +17,7 @@ const DataContact: React.FC = () => (
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
   >
-    {/* ───── Tarjetas ───── */}
+    {/* ───── DATA CARDS ───── */}
     <div className={styles.cardsWrapper}>
       <DataCard
         background={CardImage}
@@ -47,7 +47,7 @@ const DataContact: React.FC = () => (
       />
     </div>
 
-    {/* ───── Mapa ───── */}
+    {/* ───── MAP ───── */}
     <iframe
       title="Ubicación Akali Piercing"
       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.0495055700694!2d-58.83557779999999!3d-27.467718100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94456ca3f8507ea5%3A0x85b532d9bb5a206b!2sJunin%2C%20W3400%20Corrientes!5e0!3m2!1ses!2sar!4v1752512591116!5m2!1ses!2sar"

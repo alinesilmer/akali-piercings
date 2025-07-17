@@ -23,10 +23,8 @@ const DataCard: React.FC<DataCardProps> = ({ background, items }) => (
     transition={{ duration: 0.6 }}
     viewport={{ once: true }}
   >
-    {/* Capa oscura */}
     <span className={styles.overlay} />
 
-    {/* Contenido */}
     <div className={styles.content}>
       {items.map(({ icon: Icon, text }, i) => (
         <React.Fragment key={i}>

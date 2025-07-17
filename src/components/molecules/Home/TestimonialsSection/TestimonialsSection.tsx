@@ -17,7 +17,7 @@ const TestimonialsSection: React.FC = () => {
   return (
     <section className={styles.testimonialsSection}>
       <div className={styles.container}>
-        {/* encabezado animado */}
+        {/* HEADER */}
         <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 30 }}
@@ -40,7 +40,7 @@ const TestimonialsSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className={styles.carouselWrapper}>
-            {/* carrusel principal */}
+            {/* CAROUSEL */}
             <IconButton
               icon={ChevronLeft}
               onClick={goToPrevious}
@@ -84,7 +84,7 @@ const TestimonialsSection: React.FC = () => {
             />
           </div>
         </motion.div>
-        {/* indicadores inferiores */}
+        {/* INDICATORS */}
         <div className={styles.indicators}>
           {TESTIMONIALS_DATA.map((_, index) => (
             <button

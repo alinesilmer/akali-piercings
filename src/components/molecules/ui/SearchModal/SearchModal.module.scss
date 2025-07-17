@@ -129,8 +129,6 @@
 .resultsList {
   max-height: 400px;
   overflow-y: auto;
-  
-  // Custom scrollbar
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) transparent;
   

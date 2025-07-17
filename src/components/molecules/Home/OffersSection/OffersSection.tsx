@@ -9,7 +9,7 @@ import type { OfferItem } from "../../../../data/OffersData";
 
 const PHONE = "5493794532535";
 const MESSAGE =
-  "¡Hola! Quiero reservar un turno para la promoción que vi en su web.";
+  "¡Hola, Luz! Quiero reservar un turno para la promoción que vi en tu web.";
 
 interface OffersSectionProps {
   offers: ReadonlyArray<OfferItem>;
@@ -21,10 +21,7 @@ export default function OffersSection({ offers }: OffersSectionProps) {
   const [open, setOpen] = useState(false);
   if (total < 5) return null;
 
-  // helper for wrapping indices
   const idx = (i: number) => (i + total) % total;
-
-  // show two cards before and after the current one
   const visibleOffsets = [-2, -1, 0, 1, 2] as const;
   const visible = visibleOffsets.map((o) => idx(currentIndex + o));
   const sizes = ["small", "medium", "large", "medium", "small"] as const;

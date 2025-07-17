@@ -20,7 +20,7 @@ const Form: React.FC = () => {
     const motive = data.get("motive") as string;
     const msg = data.get("message") as string;
 
-    /* Texto para WhatsApp */
+    /* WHATSAPP MESSAGE */
     const text = [
       `👋 Hola Luz, soy ${name}.`,
       email ? `📧 ${email}` : "",
@@ -60,7 +60,7 @@ const Form: React.FC = () => {
         <h2 className={styles.title}>Formulario de contacto</h2>
 
         <form className={styles.form} onSubmit={sendMessage}>
-          {/* ───── Fila 1 ───── */}
+          {/* ───── Row 1 ───── */}
           <div className={styles.row}>
             <div className={styles.formGroup}>
               <label htmlFor="name">Nombre</label>
@@ -73,7 +73,7 @@ const Form: React.FC = () => {
             </div>
           </div>
 
-          {/* ───── Fila 2 ───── */}
+          {/* ───── Row 2 ───── */}
           <div className={styles.row}>
             <div className={styles.formGroup}>
               <label htmlFor="phone">Teléfono</label>
@@ -86,13 +86,13 @@ const Form: React.FC = () => {
             </div>
           </div>
 
-          {/* ───── Mensaje ───── */}
+          {/* ───── Message ───── */}
           <div className={styles.formGroup}>
             <label htmlFor="message">Mensaje</label>
             <textarea id="message" name="message" rows={6} required />
           </div>
 
-          {/* ───── Botón ───── */}
+          {/* ───── Button ───── */}
           <div className={styles.buttonWrapper}>
             <button type="submit" className={styles.sendButton}>
               Enviar

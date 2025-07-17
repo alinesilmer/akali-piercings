@@ -1,9 +1,7 @@
 
-/* 1. Import Google Fonts (SCSS will inline this into your CSS)            */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
-
-/* 2. CSS Variables                                                        */
+/* Colors                                                            */
 :root {
   --color-primary:   #c2b48a;
   --color-secondary: #ece6d3;
@@ -17,7 +15,6 @@
 }
 
 
-/* 3. Reset                                                                 */
 *,
 *::before,
 *::after {
@@ -39,9 +36,7 @@ body {
 }
 
 
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/* 4. Typography                                                            */
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* Typography                                                            */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-weight: 400;
@@ -63,9 +58,7 @@ button {
 }
 
 
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/* 5. Utility Classes                                                       */
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* Utility Classes                                                       */
 .container {
   max-width: 1200px;
   margin:    0 auto;
@@ -77,18 +70,15 @@ button {
 .text-secondary { color: var(--color-secondary); }
 
 
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/* 6. App Layout                                                            */
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+
+/* Layout                                                            */
 .app {
   min-height: 100vh;
   position:   relative;
 }
 
 
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/* 7. Responsive Mixins                                                     */
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* Responsive Mixins                                                     */
 @mixin mobile {
   @media (max-width: 768px) {
     @content;
@@ -108,9 +98,7 @@ button {
 }
 
 
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/* 8. Flexbox Utilities                                                     */
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* Flexbox Utilities                                                     */
 @mixin flex-center {
   display:       flex;
   align-items:   center;
@@ -124,9 +112,7 @@ button {
 }
 
 
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
-/* 9. Button Styles                                                         */
-/*–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––*/
+/* Button Styles                                                         */
 @mixin button-base {
   padding:       1rem 2rem;
   border-radius: 0;

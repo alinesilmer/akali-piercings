@@ -63,9 +63,7 @@ function InstagramEmbed({ url }: { url: string }) {
     <div
       ref={containerRef}
       style={{
-        // hide the embed until the iframe is fully loaded
         visibility: loaded ? "visible" : "hidden",
-        // preserve some height so layout doesn't jump
         minHeight: "300px",
       }}
     >
@@ -80,7 +78,6 @@ function InstagramEmbed({ url }: { url: string }) {
 }
 
 export default function GallerySection() {
-  // responsive logic
   const [width, setWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 1024
   );
@@ -96,7 +93,6 @@ export default function GallerySection() {
   const maxIndex = allPostUrls.length - visibleCount;
   const [index, setIndex] = useState(0);
 
-  // re-process embeds whenever the slice changes
   useEffect(() => {
     if (window.instgrm?.Embeds?.process) window.instgrm.Embeds.process();
   }, [index, width]);

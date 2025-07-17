@@ -10,7 +10,7 @@ interface Props {
   image: Img;
   isActive?: boolean;
   onClick?: () => void;
-  layout?: boolean /* passed from parent */;
+  layout?: boolean;
 }
 
 export default function OfferCard({

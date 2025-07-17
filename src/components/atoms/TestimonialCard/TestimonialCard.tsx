@@ -22,7 +22,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       transition={{ duration: 0.25 }}
     >
       <div className={styles.cardInner}>
-        {/* CARA FRONTAL */}
+        {/* FRONT */}
         <div className={`${styles.cardFace} ${styles.cardFront}`}>
           <img
             src={image || "/placeholder.svg"}
@@ -34,7 +34,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           </div>
         </div>
 
-        {/* CARA TRASERA */}
+        {/* BACK */}
         <div className={`${styles.cardFace} ${styles.cardBack}`}>
           <p className={styles.quote}>“{text}”</p>
         </div>

@@ -1,26 +1,21 @@
 
-
-/* === GRID PRINCIPAL === */
 .faqSection {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* desktop */
+  grid-template-columns: 1fr 1fr; 
   min-height: 100vh;
 
-  /* Tablet: columnas iguales con gap */
   @media (max-width: 1024px) {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
     row-gap: 2rem;
   }
 
-  /* Mobile: misma lógica, pero padding menos agresivo */
   @media (max-width: 768px) {
     grid-template-rows: auto 1fr;
     row-gap: 1.5rem;
   }
 }
 
-/* === COLUMNA CONTACTO === */
 .contactSide {
   background-color: var(--color-dark);
   display: flex;
@@ -66,7 +61,7 @@
   }
 }
 
-/* === IMAGEN DECORATIVA === */
+
 .toolsImage {
   position: relative;
   flex: 2;
@@ -87,7 +82,7 @@
   }
 }
 
-/* === COLUMNA FAQ === */
+
 .faqSide {
   background-color: var(--color-dark);
   padding: 4rem 2rem;

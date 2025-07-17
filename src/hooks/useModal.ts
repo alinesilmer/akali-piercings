@@ -17,7 +17,7 @@ export const useModal = (initialOpen = false) => {
     setIsOpen((prev) => !prev)
   }, [])
 
-  // Handle escape key
+  // escape key
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape" && isOpen) {

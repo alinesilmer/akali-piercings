@@ -66,13 +66,11 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
 
-    /* ocultar scrollbar */
     &::-webkit-scrollbar { display: none; }
     scrollbar-width: none;
   }
 }
 
-/* ---------- tarjetas individuales ---------- */
 .frame {
   flex-shrink: 0;
   width: 10rem;
@@ -93,7 +91,6 @@
   }
 }
 
-/* ---------- chevrons ---------- */
 .navButton {
   position: absolute;          
   top: 75%;
@@ -115,7 +112,6 @@
 .prev { left: 1.5rem; }  
 .next { right: 1.5rem; }
 
-/* ---------- TABLET (≤ 1024 px) ---------- */
 @media (max-width: 1024px) {
   .gallerySection {
     flex-direction: column;
@@ -155,7 +151,6 @@
   .cardRowScroll { margin-bottom: 2rem; }
 }
 
-/* ---------- MÓVIL (≤ 768 px) ---------- */
 @media (max-width: 768px) {
   .cardRowScroll {
     justify-content: flex-start;  

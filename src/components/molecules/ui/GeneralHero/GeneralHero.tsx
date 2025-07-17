@@ -41,7 +41,7 @@ const GeneralHero: React.FC<GeneralHeroProps> = ({
             className={styles.heroMedia}
             aria-label="Background video"
           >
-            Your browser does not support the video tag.
+            Tu navegador no soporta la reproducción de este video.
           </video>
         ) : (
           <img

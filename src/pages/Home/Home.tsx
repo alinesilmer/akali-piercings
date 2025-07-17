@@ -15,7 +15,7 @@ import Line from "../../components/molecules/ui/Line/Line";
 const Home: React.FC = () => {
   const PHONE_NUMBER = "543794532535"; //
   const DEFAULT_MESSAGE =
-    "¡Hola! Quiero agendar un turno para un piercing. ¿Podrían ayudarme?";
+    "¡Hola, Luz! Quiero agendar un turno para un piercing, por favor.";
 
   const handleAgendarTurno = () => {
     const url = `https://wa.me/${PHONE_NUMBER}?text=${encodeURIComponent(
