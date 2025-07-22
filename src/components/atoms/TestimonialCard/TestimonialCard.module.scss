@@ -1,6 +1,5 @@
 
 
-/* ==== CONTENEDOR ==== */
 .cardWrapper {
   perspective: 1000px;
   height: 400px;                       
@@ -15,7 +14,6 @@
 }
 
 
-/* ==== INNER (rota) ==== */
 .cardInner {
   position: relative;
   width: 100%;
@@ -28,7 +26,6 @@
   }
 }
 
-/* ==== CARA BASE ==== */
 .cardFace {
   position: absolute;
   inset: 0;
@@ -39,7 +36,6 @@
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* ==== CARA FRONTAL ==== */
 .cardFront {
   display: flex;
   flex-direction: column;
@@ -73,7 +69,6 @@
   }
 }
 
-/* ==== CARA TRASERA ==== */
 .cardBack {
   @include m.flex-center;
   padding: 2rem;

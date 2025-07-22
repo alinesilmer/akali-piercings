@@ -12,10 +12,7 @@ import ProductModal from "../../Services/ProductModal/ProductModal";
 
 import { useSearch } from "../../../../hooks/useSearch";
 import { useModal } from "../../../../hooks/useModal";
-import {
-  PIERCING_SERVICES,
-  JEWELRY_PRODUCTS,
-} from "../../../../utils/servicesData";
+import { PIERCING_SERVICES } from "../../../../utils/servicesData";
 import type { ProductService } from "../../../../types/product";
 
 import styles from "./Navbar.module.scss";
@@ -27,8 +24,7 @@ const Navbar: React.FC = () => {
   );
   const location = useLocation();
 
-  // combine for search
-  const allProducts = [...PIERCING_SERVICES, ...JEWELRY_PRODUCTS];
+  const allProducts = [...PIERCING_SERVICES];
 
   const {
     searchQuery,

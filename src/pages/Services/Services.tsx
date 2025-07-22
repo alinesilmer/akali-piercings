@@ -6,15 +6,15 @@ import { motion } from "framer-motion";
 import ProductGrid from "../../components/molecules/Services/ProductGrid/ProductGrid";
 import {
   PIERCING_SERVICES,
-  JEWELRY_PRODUCTS,
   PIERCING_CATEGORIES,
-  JEWELRY_CATEGORIES,
 } from "../../utils/servicesData";
+import { JEWELRY_DISPLAY_IMAGES } from "../../utils/jewelryData";
 import styles from "./Services.module.scss";
 import GeneralHero from "../../components/molecules/ui/GeneralHero/GeneralHero";
 import ServicesOptions from "../../components/molecules/Services/ServicesOptions/ServicesOptions";
 import HeroImage from "../../assets/images/ServicesHero.png";
 import Line from "../../components/molecules/ui/Line/Line";
+import JewelryDisplayGrid from "../../components/molecules/Services/JewelryDisplayGrid/JewelryDisplayGrid";
 
 const Services: React.FC = () => {
   useEffect(() => {
@@ -59,11 +59,7 @@ const Services: React.FC = () => {
       <Line />
 
       <section id="productos">
-        <ProductGrid
-          title="JOYERÍA Y ACCESORIOS"
-          products={JEWELRY_PRODUCTS}
-          categories={JEWELRY_CATEGORIES}
-        />
+        <JewelryDisplayGrid title="JOYERÍA" images={JEWELRY_DISPLAY_IMAGES} />
       </section>
     </motion.div>
   );

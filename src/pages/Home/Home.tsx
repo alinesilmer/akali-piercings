@@ -13,7 +13,7 @@ import { offersData } from "../../data/OffersData";
 import Line from "../../components/molecules/ui/Line/Line";
 
 const Home: React.FC = () => {
-  const PHONE_NUMBER = "543794532535"; //
+  const PHONE_NUMBER = "5493794086969"; //
   const DEFAULT_MESSAGE =
     "¡Hola, Luz! Quiero agendar un turno para un piercing, por favor.";
 

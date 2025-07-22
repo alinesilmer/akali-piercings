@@ -18,7 +18,7 @@ interface ProductModalProps {
   product: ProductService;
 }
 
-const WHATSAPP_NUMBER = "543794532535";
+const WHATSAPP_NUMBER = "5493794086969";
 const WHATSAPP_TEXT = "¡Hola, Luz! Quiero agendar un turno para el servicio: ";
 const WHATSAPP_TEXT_CHANGE = "¡Hola, Luz! Quiero cambiar la pieza de: ";
 

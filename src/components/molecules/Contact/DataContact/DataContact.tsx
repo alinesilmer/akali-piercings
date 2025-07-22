@@ -22,7 +22,7 @@ const DataContact: React.FC = () => (
       <DataCard
         background={CardImage}
         items={[
-          { icon: Phone, text: "+3794 111111" },
+          { icon: Phone, text: "+3794086969" },
           { icon: Mail, text: "akalipiercing@gmail.com" },
         ]}
       />

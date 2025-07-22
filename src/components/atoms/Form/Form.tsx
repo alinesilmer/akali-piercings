@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Send } from "lucide-react";
 import styles from "./Form.module.scss";
 
-const WHATSAPP_NUMBER = "5493794532535";
+const WHATSAPP_NUMBER = "5493794086969";
 
 const Form: React.FC = () => {
   const [showPopup, setShowPopup] = useState(false);

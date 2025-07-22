@@ -1,6 +1,4 @@
 
-
-/* ---------- Contenedor ---------- */
 .wrapper {
   border: 2px solid var(--color-primary);
   border-radius: 6px;
@@ -23,7 +21,6 @@
   }
 }
 
-/* ---------- Título ---------- */
 .title {
   font-family: var(--font-heading);
   font-size: 2.25rem;
@@ -35,7 +32,6 @@
   letter-spacing: 0.5px;
 }
 
-/* ---------- Formulario ---------- */
 .form {
   display: flex;
   flex-direction: column;
@@ -128,7 +124,6 @@ text-align: center;
   stroke: currentColor;
 }
 
-/* ─── Pop-up de éxito ─── */
 .popup {
   position: fixed;
   top: 1rem;

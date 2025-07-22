@@ -27,7 +27,7 @@ const Footer: React.FC = () => {
     },
     {
       icon: Phone,
-      text: "+3794 111111",
+      text: "+3794086969",
     },
   ];
 

@@ -1,19 +1,15 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Source+Serif+Pro:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&display=swap');
 
-/* Colors                                                            */
+/* Colors */
 :root {
-  --color-primary:   #c2b48a;
+  --color-primary: #c2b48a;
   --color-secondary: #ece6d3;
-  --color-dark:      #0e0e0e;
-  --color-white:     #ffffff;
-
+  --color-dark: #0e0e0e;
+  --color-white: #ffffff;
   --font-heading: 'Cormorant SC', serif;
-  --font-body:    'Source Serif Pro', serif;
-
+  --font-body: 'Source Serif Pro', serif;
   --transition: all 0.3s ease;
 }
-
 
 *,
 *::before,
@@ -25,60 +21,91 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px; /* Base font size for responsiveness */
+  overflow-x: hidden; /* Prevent horizontal scroll on html */
+
+  @media (max-width: 1024px) {
+    font-size: 15px; /* Slightly smaller base font for tablets */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 14px; /* Smaller base font for mobiles */
+  }
+
+  @media (max-width: 480px) {
+    font-size: 13px; /* Even smaller base font for very small mobiles */
+  }
 }
 
 body {
-  font-family:    var(--font-body);
-  background:     var(--color-dark);
-  color:          var(--color-white);
-  line-height:    1.6;
-  overflow-x:     hidden;
+  font-family: var(--font-body);
+  background: var(--color-dark);
+  color: var(--color-white);
+  line-height: 1.6;
+  overflow-x: hidden; /* Ensure no horizontal scroll on body */
 }
 
-
-/* Typography                                                            */
-h1, h2, h3, h4, h5, h6 {
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 400;
   line-height: 1.2;
+  word-wrap: break-word; /* Ensure long words break */
 }
 
 a {
   text-decoration: none;
-  color:           inherit;
-  transition:      var(--transition);
+  color: inherit;
+  transition: var(--transition);
 }
 
 button {
-  border:         none;
-  background:     none;
-  cursor:         pointer;
-  font-family:    inherit;
-  transition:     var(--transition);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: var(--transition);
 }
 
-
-/* Utility Classes                                                       */
+/* Utility Classes */
 .container {
   max-width: 1200px;
-  margin:    0 auto;
-  padding:   0 2rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%; /* Ensure container takes full width */
+
+  @media (max-width: 1024px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
 }
 
-.text-center    { text-align: center; }
-.text-primary   { color: var(--color-primary); }
-.text-secondary { color: var(--color-secondary); }
+.text-center {
+  text-align: center;
+}
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
 
-
-
-/* Layout                                                            */
+/* Layout */
 .app {
   min-height: 100vh;
-  position:   relative;
+  position: relative;
+  overflow: hidden; /* Catch any potential overflow from children */
 }
 
-
-/* Responsive Mixins                                                     */
+/* Responsive Mixins */
 @mixin mobile {
   @media (max-width: 768px) {
     @content;
@@ -97,53 +124,108 @@ button {
   }
 }
 
-
-/* Flexbox Utilities                                                     */
+/* Flexbox Utilities */
 @mixin flex-center {
-  display:       flex;
-  align-items:   center;
+  display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 @mixin flex-between {
-  display:       flex;
-  align-items:   center;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
-
-/* Button Styles                                                         */
+/* Button Styles */
 @mixin button-base {
-  padding:       1rem 2rem;
+  padding: 1rem 2rem;
   border-radius: 0;
-  font-family:   var(--font-heading);
-  font-size:     1rem;
-  letter-spacing:1px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  transition:     var(--transition);
-  cursor:         pointer;
+  transition: var(--transition);
+  cursor: pointer;
+  white-space: nowrap; /* Prevent button text from wrapping */
+
+  @include mobile {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+  }
 }
 
 @mixin button-primary {
-  @include m.button-base;
-  background:       transparent;
-  color:            var(--color-primary);
-  border:           2px solid var(--color-primary);
+  @include button-base;
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
 
   &:hover {
     background: var(--color-primary);
-    color:      var(--color-dark);
+    color: var(--color-dark);
   }
 }
 
 @mixin button-secondary {
-  @include m.button-base;
-  background:       var(--color-primary);
-  color:            var(--color-dark);
-  border:           2px solid var(--color-primary);
+  @include button-base;
+  background: var(--color-primary);
+  color: var(--color-dark);
+  border: 2px solid var(--color-primary);
 
   &:hover {
     background: transparent;
-    color:      var(--color-primary);
+    color: var(--color-primary);
+  }
+}
+
+/* Page-specific styles */
+.services {
+  padding: 0;
+  background-color: var(--color-dark);
+  min-height: 100vh;
+  overflow: hidden; /* Ensure no horizontal scroll on this section */
+}
+
+.home {
+  min-height: 100vh;
+  padding-top: 80px; /* Adjust based on your navbar height */
+  overflow: hidden; /* Ensure no horizontal scroll on this section */
+
+  @include mobile {
+    padding-top: 60px; /* Smaller padding for mobile */
+  }
+}
+
+.contact {
+  padding: 0;
+  background-color: var(--color-dark);
+  min-height: 100vh;
+  overflow: hidden; /* Ensure no horizontal scroll on this section */
+}
+
+.about {
+  padding: 0;
+  background-color: var(--color-dark);
+  min-height: 100vh;
+  overflow: hidden; /* Ensure no horizontal scroll on this section */
+}
+
+.gallerySection {
+  padding: 6rem 0 4rem;
+  background: var(--color-dark-alt, #0b0b0b);
+  overflow: hidden; /* Ensure no horizontal scroll on this section */
+
+  @include mobile {
+    padding: 4rem 0 3rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 3rem 0 2rem;
   }
 }

@@ -70,3 +70,11 @@ export const TESTIMONIALS_DATA = [
     text: "Profesional de primera. Recomiendo al 100 %.",
   },
 ];
+
+
+// src/utils/constants.ts
+export const WHATSAPP_NUMBER = "5493794086969"
+export const WHATSAPP_TEXT = "¡Hola, Luz! Quiero agendar un turno para el servicio: "
+export const WHATSAPP_TEXT_CHANGE = "¡Hola, Luz! Quiero cambiar la pieza de: "
+export const WHATSAPP_JEWELRY_CONSULT_TEXT =
+  "¡Hola, Luz! Estoy interesado/a en una pieza de joyería que vi en tu catálogo. ¿Podrías darme más información sobre su disponibilidad?"

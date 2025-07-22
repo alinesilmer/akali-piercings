@@ -1,5 +1,5 @@
 import type { ProductService, Category } from "../types/product"
-// src/utils/servicesData.ts
+
 import eyebrow from "../assets/images/Ceja.svg";
 import lips from "../assets/images/Labial.svg";
 import nose from "../assets/images/Nariz.svg";
@@ -48,6 +48,12 @@ import nostrile2 from "../assets/images/clients/nostrile.jpeg";
 import nostrile3 from "../assets/images/clients/nostrile2.jpeg";
 import nostrile4 from "../assets/images/clients/nostrile3.jpeg";
 import rook from "../assets/images/clients/daith.jpeg";
+import tragus from "../assets/images/clients/tragus.jpeg";
+import tragus2 from "../assets/images/clients/client13.jpeg";
+import industrial3 from "../assets/images/clients/industrial.jpeg";
+import labret2 from "../assets/images/clients/labret.jpeg";
+import labret3 from "../assets/images/clients/sidelabret.jpeg";
+import lobe3 from "../assets/images/clients/lobe2.jpeg";
 
 export const PIERCING_SERVICES: ProductService[] = [
   {
@@ -73,13 +79,13 @@ export const PIERCING_SERVICES: ProductService[] = [
         type: "main"
       }, 
       {
-        id: "secondary",
+        id: "third",
         src: nostrile3,
         alt: "Piercing Nostrile",
         type: "main"
       },
       {
-        id: "secondary",
+        id: "fourth",
         src: nostrile4,
         alt: "Piercing Nostrile",
         type: "main"
@@ -113,13 +119,19 @@ export const PIERCING_SERVICES: ProductService[] = [
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
     images: [{
-      id: "main",
+      id: "fifth",
       src: industrial,
       alt: "Piercing Industrial",
       type: "main"
     }, {
-      id: "main",
+      id: "sixth",
       src: industrial2,
+      alt: "Piercing Industrial",
+      type: "main"
+      },
+    {
+      id: "seventh",
+      src: industrial3,
       alt: "Piercing Industrial",
       type: "main"
     }],
@@ -136,7 +148,7 @@ export const PIERCING_SERVICES: ProductService[] = [
   features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
   images: [
     {
-      id: "main",
+      id: "eighth",
       src: rook,         
       alt: "Piercing Rook",
       type: "main"
@@ -154,8 +166,20 @@ export const PIERCING_SERVICES: ProductService[] = [
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
     images: [{
-      id: "main",
+      id: "ninth",
       src: labret,
+      alt: "Piercing Labret",
+      type: "main"
+    },
+    {
+      id: "tenth",
+      src: labret2,
+      alt: "Piercing Labret",
+      type: "main"
+      },
+      {
+      id: "eleventh",
+      src: labret3,
       alt: "Piercing Labret",
       type: "main"
     }],
@@ -165,19 +189,17 @@ export const PIERCING_SERVICES: ProductService[] = [
     id: "navel",
     title: "Navel",
     description: "Un clásico que nunca pasa de moda. Perfecto para mostrar tu personalidad y estilo único.",
-    price: 7000,
-    originalPrice: 15000,
+    price: 15000,
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
     images: [{
-      id: "main",
+      id: "twelveth",
       src: navel,
       alt: "Piercing Navel",
       type: "main"
     }],
-    categoryId: "body",
-    isOnSale: true,
+    categoryId: "body"
   },
   {
     id: "ceja",
@@ -188,13 +210,13 @@ export const PIERCING_SERVICES: ProductService[] = [
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
     images: [{
-      id: "main",
+      id: "thirteenth",
       src: eyebrows,
       alt: "Piercing Ceja",
       type: "main"
     },
     {
-      id: "main",
+      id: "fourteenth",
       src: eyebrows2,
       alt: "Piercing Ceja",
       type: "main"
@@ -210,7 +232,9 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: lobe, alt: "Piercing Lobe", type: "main" }],
+    images: [
+      { id: "fifteenth", src: lobe, alt: "Piercing Lobe", type: "main" },
+    { id: "sixteenth", src: lobe3, alt: "Piercing Lobe", type: "main" }],
     categoryId: "ear",
   },
    {
@@ -222,7 +246,8 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: helix, alt: "Piercing Helix", type: "main" }, { id: "main", src: helix2, alt: "Piercing Helix", type: "main" }],
+     images: [{ id: "seventeenth", src: helix, alt: "Piercing Helix", type: "main" },
+     { id: "eighteenth", src: helix2, alt: "Piercing Helix", type: "main" }],
     categoryId: "ear",
   },
   {
@@ -234,8 +259,8 @@ export const PIERCING_SERVICES: ProductService[] = [
     currency: "$",
     category: "piercing",
     features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
-    images: [{ id: "main", src: daith, alt: "Piercing Daith", type: "main" },
-      { id: "main", src: daith2, alt: "Piercing Daith", type: "main" },
+    images: [{ id: "nineteenth", src: daith, alt: "Piercing Daith", type: "main" },
+      { id: "twenty", src: daith2, alt: "Piercing Daith", type: "main" },
     ],
     categoryId: "ear",
   },
@@ -250,52 +275,47 @@ export const PIERCING_SERVICES: ProductService[] = [
   features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
   images: [
     {
-      id: "main",
+      id: "twentyone",
       src: lingual,      
       alt: "Piercing Lingual",
       type: "main"
     }
   ],
   categoryId: "mouth",
+  },
+  {
+  id: "ear",
+  title: "Tragus",
+  description:
+    "El piercing tragus, colocado en el pequeño cartílago frente al canal auditivo, aporta un detalle discreto y elegante. Realizado con acero quirúrgico de primera calidad y técnica experta, garantiza comodidad y un acabado impecable.",
+  price: 25000,
+  currency: "$",
+  category: "piercing",
+  features: ["Evaluación personalizada", "Joyería de acero", "Acompañamiento post-servicio"],
+    images: [
+  {
+      id: "twentytwo",
+      src: tragus2,      
+      alt: "Tragus",
+      type: "main"
+    },
+    {
+      id: "twentythree",
+      src: tragus,      
+      alt: "Tragus",
+      type: "main"
+    },
+  ],
+  categoryId: "ear",
 }
 
 ];
 
+export const servicesData = {
+  piercingCategories: PIERCING_CATEGORIES,
+  jewelryCategories: JEWELRY_CATEGORIES,
+  services: PIERCING_SERVICES,
+};
 
-import product from "../assets/images/products/product1.jpeg";
-import product2 from "../assets/images/products/joya.jpeg";
+export default servicesData;
 
-export const JEWELRY_PRODUCTS: ProductService[] = [
-  {
-    id: "piercing-ear",
-    title: "Pieza Helix Acero",
-    description: "Pieza de acero para piercing Helix, ideal para piercing en el cartílago superior del oído.",
-    price: 12000,
-    currency: "$",
-    category: "jewelry",
-    features: ["Acero quirúrgico", "Diseño a juego", "Hipoalergénico"],
-    images: [{
-      id: "main",
-      src: product,      
-      alt: "Pieza Helix Acero",
-      type: "main"
-    }],
-    categoryId: "piercing",
-  },
-  {
-    id: "piercing-eyebrow",
-    title: "Barra Curva",
-    description: "Barra curva de acero para piercing en ceja, diseñada para complementar tu mirada y realzar tu estilo.",
-    price: 15000,
-    currency: "$",
-    category: "jewelry",
-    features: ["Acero quirúrgico", "Diseño a juego", "Hipoalergénico"],
-    images: [{
-      id: "main",
-      src: product2,      
-      alt: "Barra Curva",
-      type: "main"
-    }],
-    categoryId: "piercing",
-  },
-]
