@@ -93,7 +93,7 @@ const ProductModal: React.FC<ProductModalProps> = ({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h1 className={styles.title}>{product.title}</h1>
+            <h2 className={styles.title}>{product.title}</h2>
             <p className={styles.description}>{product.description}</p>
 
             <div className={styles.serviceSection}>

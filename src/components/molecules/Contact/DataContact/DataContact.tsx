@@ -23,7 +23,7 @@ const DataContact: React.FC = () => (
         background={CardImage}
         items={[
           { icon: Phone, text: "+3794086969" },
-          { icon: Mail, text: "akalipiercing@gmail.com" },
+          { icon: Mail, text: "Mensaje Privado de Instagram" },
         ]}
       />
 
@@ -38,7 +38,7 @@ const DataContact: React.FC = () => (
       <DataCard
         background={CardImage3}
         items={[
-          { icon: MapPin, text: "Calle Junín 123" },
+          { icon: MapPin, text: "Zona Centro" },
           {
             icon: Clock,
             text: "Lun a Sáb 9-21 h\nsólo con turno",

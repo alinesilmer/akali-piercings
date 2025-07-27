@@ -5,6 +5,8 @@
   color: var(--color-white);
   padding: 4rem 0 2rem;
   margin-top: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .topSection {
@@ -198,6 +200,61 @@
     color: var(--color-dark);
   }
 }
+
+/*CREDITS SECTION*/
+
+.creditsSection {
+  text-align: end;
+  justify-content: center;
+  margin: 0.5rem 3rem;
+  padding: 0rem 2rem;
+  border-top: 1px solid var(--border-light);
+  background-color: var(--background);
+
+  @media (max-width: 768px) {
+    text-align: center;
+    margin: 2rem 1rem;
+  }
+}
+
+.creditsTitle {
+  font-size: clamp(1rem, 1.8vw, 1rem);
+  margin-bottom: 1rem;
+  color: gray;
+}
+
+.socials {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
+}
+
+.creditsLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: none;
+  border-radius: 50%;
+  transition: var(--transition);
+
+  &:hover {
+    background-color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  color: var(--color-white);
+}
+
 
 @include m.mobile {
   .footer {

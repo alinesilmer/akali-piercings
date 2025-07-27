@@ -4,7 +4,7 @@ import type React from "react";
 
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { MapPin, Clock, Phone, Instagram } from "lucide-react";
+import { MapPin, Clock, Phone, Mail, Instagram } from "lucide-react";
 import Logo from "../../../atoms/Logo/Logo";
 import styles from "./Footer.module.scss";
 
@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
   const contactInfo = [
     {
       icon: MapPin,
-      text: "Calle 13, Corrientes Capital, Argentina",
+      text: "Zona Centro, Corrientes Capital, Argentina",
     },
     {
       icon: Clock,
@@ -143,6 +143,43 @@ const Footer: React.FC = () => {
         >
           <Instagram className={styles.socialIcon} />
         </motion.a>
+      </motion.div>
+
+      {/* Credits Section */}
+
+      <motion.div
+        className={styles.creditsSection}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        viewport={{ once: true }}
+      >
+        <h4 className={styles.creditsTitle}>Desarrollado por Dev Horizon</h4>
+        <div className={styles.socials}>
+          <motion.a
+            href="https://www.instagram.com/devhorizontech/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.creditsLink}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Instagram className={styles.icon} />
+          </motion.a>
+
+          <motion.a
+            href="https://mail.google.com/mail/?view=cm&to=dev.horizon.techh@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.creditsLink}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            <Mail className={styles.icon} />
+          </motion.a>
+        </div>
       </motion.div>
     </footer>
   );
