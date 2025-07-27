@@ -1,6 +1,8 @@
-import Testimony from "../assets/images/clients/client.jpeg";
-import Testimony2 from "../assets/images/clients/client7.jpeg";
-import Testimony3 from "../assets/images/clients/client2.jpeg";
+import Testimony from "../assets/images/testimonies/Testimonio1.jpeg";
+import Testimony2 from "../assets/images/testimonies/Testimonio2.jpeg";
+import Testimony3 from "../assets/images/testimonies/Testimonio3.jpeg";
+import Testimony4 from "../assets/images/testimonies/Testimonio4.jpeg";
+import Testimony5 from "../assets/images/testimonies/Testimonio5.jpeg";
 
 
 export const FEATURES_DATA = [
@@ -26,15 +28,15 @@ export const FEATURES_DATA = [
   
   export const FAQ_DATA = [
     {
-      id: "reagendar",
-      question: "¿Puedo reagendar un turno?",
-      answer: "Los turnos pueden reagendarse con un mínimo de 8 hrs de anticipación.",
+      id: "ubicación",
+      question: "¿Dónde se encuentran ubicados?",
+      answer: "Nos encontramos ubicados en zona centro, una vez acordada la cita te enviamos la ubicación por privado",
     },
     {
-      id: "tipos",
-      question: "¿Qué tipos de piercings realizan?",
+      id: "turnos",
+      question: "¿Trabajan con turnos previos o por orden de llegada?",
       answer:
-        "Realizamos todo tipo de piercings corporales: orejas, nariz, labios, lengua, ombligo, y más. Consultanos por tu piercing específico.",
+        "Trabajamos con turnos previos, y también por orden de llegada (con una anticipación de horas previas ya podés agendar tu turno o pactar una cita en el estudio)",
     },
     {
       id: "domicilio",
@@ -44,30 +46,32 @@ export const FEATURES_DATA = [
     },
     {
       id: "pagos",
-      question: "¿Cuáles son los métodos de pago?",
+      question: "¿Aceptan transferencia o tarjetas de crédito/débito?",
       answer:
-        "Aceptamos efectivo, tarjetas de débito y crédito, transferencias bancarias y billeteras virtuales como Mercado Pago.",
+        "Aceptamos transferencia o efectivo, por el momento solo esos medios de pago 🫶🏻. No aceptamos tarjetas de débito o crédito",
     },
   ]
 
 export const TESTIMONIALS_DATA = [
   {
-    id: "clara",
-    name: "Clara Sánchez",
-    image: Testimony,
-    text: "¡Excelente atención y resultado impecable! Volvería sin dudar.",
+    id: "testimonio",
+    image: Testimony
   },
   {
-    id: "camila",
-    name: "Camila Pérez",
-    image: Testimony2,
-    text: "Me sentí súper cuidada durante todo el proceso. ¡Gracias Luz!",
+    id: "testimonio2",
+    image: Testimony2
   },
   {
-    id: "rocio",
-    name: "Rocío Díaz",
+    id: "testimonio3",
     image: Testimony3,
-    text: "Profesional de primera. Recomiendo al 100 %.",
+  },
+   {
+    id: "testimonio4",
+    image: Testimony4
+  },
+    {
+    id: "testimonio5",
+    image: Testimony5,
   },
 ];
 

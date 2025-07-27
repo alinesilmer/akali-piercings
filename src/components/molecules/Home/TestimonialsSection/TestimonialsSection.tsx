@@ -1,17 +1,36 @@
 "use client";
 
-import type React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import TestimonialCard from "../../../atoms/TestimonialCard/TestimonialCard";
 import IconButton from "../../../atoms/IconButton/IconButton";
-import { useCarousel } from "../../../../hooks/useCarousel";
 import { TESTIMONIALS_DATA } from "../../../../utils/constants";
 import styles from "./TestimonialsSection.module.scss";
 
+const VISIBLE_CARDS = 3;
+
 const TestimonialsSection: React.FC = () => {
-  const { currentIndex, goToNext, goToPrevious } = useCarousel(
-    TESTIMONIALS_DATA.length
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedTestimonial, setSelectedTestimonial] = useState<
+    null | (typeof TESTIMONIALS_DATA)[0]
+  >(null);
+
+  const goToPrevious = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? TESTIMONIALS_DATA.length - VISIBLE_CARDS : prev - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prev) =>
+      prev + VISIBLE_CARDS >= TESTIMONIALS_DATA.length ? 0 : prev + 1
+    );
+  };
+
+  const visibleTestimonials = TESTIMONIALS_DATA.slice(
+    currentIndex,
+    currentIndex + VISIBLE_CARDS
   );
 
   return (
@@ -32,6 +51,7 @@ const TestimonialsSection: React.FC = () => {
           </p>
         </motion.div>
 
+        {/* CAROUSEL */}
         <motion.div
           className={styles.header}
           initial={{ opacity: 0, y: 30 }}
@@ -40,7 +60,6 @@ const TestimonialsSection: React.FC = () => {
           viewport={{ once: true }}
         >
           <div className={styles.carouselWrapper}>
-            {/* CAROUSEL */}
             <IconButton
               icon={ChevronLeft}
               onClick={goToPrevious}
@@ -57,17 +76,14 @@ const TestimonialsSection: React.FC = () => {
                 transition={{ duration: 0.5 }}
               >
                 <div className={styles.testimonialsGrid}>
-                  {TESTIMONIALS_DATA.map((testimonial, index) => (
+                  {visibleTestimonials.map((testimonial) => (
                     <div
                       key={testimonial.id}
-                      className={`${styles.testimonialSlide} ${
-                        index === currentIndex ? styles.active : ""
-                      }`}
+                      className={styles.testimonialSlide}
                     >
                       <TestimonialCard
-                        name={testimonial.name}
-                        text={testimonial.text ?? ""}
                         image={testimonial.image ?? ""}
+                        onClick={() => setSelectedTestimonial(testimonial)}
                       />
                     </div>
                   ))}
@@ -84,18 +100,33 @@ const TestimonialsSection: React.FC = () => {
             />
           </div>
         </motion.div>
-        {/* INDICATORS */}
-        <div className={styles.indicators}>
-          {TESTIMONIALS_DATA.map((_, index) => (
-            <button
-              key={index}
-              className={`${styles.indicator} ${
-                index === currentIndex ? styles.active : ""
-              }`}
-              onClick={() => {}}
-            />
-          ))}
-        </div>
+
+        {/* MODAL */}
+        <AnimatePresence>
+          {selectedTestimonial && (
+            <motion.div
+              className={styles.modalOverlay}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedTestimonial(null)}
+            >
+              <motion.div
+                className={styles.modalContent}
+                onClick={(e) => e.stopPropagation()}
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.8 }}
+                transition={{ type: "spring", stiffness: 200 }}
+              >
+                <img
+                  src={selectedTestimonial.image}
+                  className={styles.modalImage}
+                />
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );

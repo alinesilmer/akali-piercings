@@ -21,19 +21,19 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px; /* Base font size for responsiveness */
-  overflow-x: hidden; /* Prevent horizontal scroll on html */
+  font-size: 16px; 
+  overflow-x: hidden; 
 
   @media (max-width: 1024px) {
-    font-size: 15px; /* Slightly smaller base font for tablets */
+    font-size: 15px;
   }
 
   @media (max-width: 768px) {
-    font-size: 14px; /* Smaller base font for mobiles */
+    font-size: 14px; 
   }
 
   @media (max-width: 480px) {
-    font-size: 13px; /* Even smaller base font for very small mobiles */
+    font-size: 13px; 
   }
 }
 
@@ -42,7 +42,7 @@ body {
   background: var(--color-dark);
   color: var(--color-white);
   line-height: 1.6;
-  overflow-x: hidden; /* Ensure no horizontal scroll on body */
+  overflow-x: hidden; 
 }
 
 /* Typography */
@@ -55,7 +55,7 @@ h6 {
   font-family: var(--font-heading);
   font-weight: 400;
   line-height: 1.2;
-  word-wrap: break-word; /* Ensure long words break */
+  word-wrap: break-word;
 }
 
 a {
@@ -77,7 +77,7 @@ button {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
-  width: 100%; /* Ensure container takes full width */
+  width: 100%; 
 
   @media (max-width: 1024px) {
     padding: 0 1.5rem;
@@ -102,7 +102,7 @@ button {
 .app {
   min-height: 100vh;
   position: relative;
-  overflow: hidden; /* Catch any potential overflow from children */
+  overflow: hidden; 
 }
 
 /* Responsive Mixins */
@@ -147,7 +147,7 @@ button {
   text-transform: uppercase;
   transition: var(--transition);
   cursor: pointer;
-  white-space: nowrap; /* Prevent button text from wrapping */
+  white-space: nowrap; 
 
   @include mobile {
     padding: 0.8rem 1.5rem;
@@ -189,16 +189,16 @@ button {
   padding: 0;
   background-color: var(--color-dark);
   min-height: 100vh;
-  overflow: hidden; /* Ensure no horizontal scroll on this section */
+  overflow: hidden; 
 }
 
 .home {
   min-height: 100vh;
-  padding-top: 80px; /* Adjust based on your navbar height */
-  overflow: hidden; /* Ensure no horizontal scroll on this section */
+  padding-top: 80px; 
+  overflow: hidden; 
 
   @include mobile {
-    padding-top: 60px; /* Smaller padding for mobile */
+    padding-top: 60px; 
   }
 }
 
@@ -206,20 +206,20 @@ button {
   padding: 0;
   background-color: var(--color-dark);
   min-height: 100vh;
-  overflow: hidden; /* Ensure no horizontal scroll on this section */
+  overflow: hidden; 
 }
 
 .about {
   padding: 0;
   background-color: var(--color-dark);
   min-height: 100vh;
-  overflow: hidden; /* Ensure no horizontal scroll on this section */
+  overflow: hidden; 
 }
 
 .gallerySection {
   padding: 6rem 0 4rem;
   background: var(--color-dark-alt, #0b0b0b);
-  overflow: hidden; /* Ensure no horizontal scroll on this section */
+  overflow: hidden; 
 
   @include mobile {
     padding: 4rem 0 3rem;

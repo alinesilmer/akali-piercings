@@ -17,7 +17,7 @@ export default function PostTreatment() {
     {
       Icon: ShieldCheck,
       title: "Protegé y evitá",
-      text: "Protegé de enganches; evitá piscinas, jacuzzis y retirar la joyería antes de tiempo.",
+      text: "Protegé de impactos de golpes, roces o enganches. Evitá piletas y retirar la joyería antes de tiempo.",
     },
     {
       Icon: AlertCircle,

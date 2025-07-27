@@ -1,102 +1,89 @@
-
-
 .cardWrapper {
-  perspective: 1000px;
-  height: 400px;                       
+  cursor: pointer;
+  height: 400px;
 
-  @media (max-width: 1024px) {         
+  @media (max-width: 1024px) {
     height: 340px;
   }
 
-  @media (max-width: 768px) {          
+  @media (max-width: 768px) {
     height: 220px;
   }
 }
 
-
-.cardInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.6s;
-
-  .cardWrapper:hover & {
-    transform: rotateY(180deg);
-  }
-}
-
-.cardFace {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  border: 1px solid rgba(194, 180, 138, 0.3);
+.cardContent {
   border-radius: 8px;
   overflow: hidden;
+  border: 1px solid rgba(194, 180, 138, 0.3);
   background-color: rgba(255, 255, 255, 0.05);
-}
-
-.cardFront {
   display: flex;
   flex-direction: column;
-
-  .image {
-    flex: 1;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .author {
-    padding: 1.5rem;
-    background: rgba(0, 0, 0, 0.3);
-
-    .name {
-      font-family: var(--font-heading);
-      font-size: 1.2rem;
-      color: var(--color-primary);
-      text-align: center;
-      letter-spacing: 1px;
-
-      @media (max-width: 1024px) {
-        font-size: 1.1rem;
-      }
-
-      @media (max-width: 768px) {
-        font-size: 1rem;
-      }
-    }
-  }
+  height: 100%;
 }
 
-.cardBack {
-  @include m.flex-center;
-  padding: 2rem;
-  transform: rotateY(180deg);
-  text-align: center;
-  background: #1f1f1f;
-  color: var(--color-white);
+.image {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-  @media (max-width: 1024px) {
-    padding: 1.75rem;
-  }
+.author {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
 
-  @media (max-width: 768px) {
-    padding: 1.5rem;
-  }
-
-  .quote {
-    font-family: var(--font-body);
-    font-size: 1.1rem;
-    line-height: 1.6;
-    font-style: italic;
+  .name {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    text-align: center;
+    letter-spacing: 1px;
 
     @media (max-width: 1024px) {
-      font-size: 1rem;
+      font-size: 1.1rem;
     }
 
     @media (max-width: 768px) {
-      font-size: 0.95rem;
+      font-size: 1rem;
     }
   }
+}
+
+/* MODAL STYLES */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  background: #1f1f1f;
+  border-radius: 12px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  color: white;
+  text-align: center;
+
+  h4 {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+}
+
+.modalImage {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
 }

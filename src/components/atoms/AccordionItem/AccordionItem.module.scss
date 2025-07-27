@@ -35,7 +35,7 @@
 .question {
   font-family: var(--font-body);
   color: var(--color-primary);
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-align: left;
 
   @include m.mobile {
@@ -70,7 +70,7 @@
 .answer {
   padding: 2rem 1.5rem;
   font-family: var(--font-body);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: var(--color-secondary);
   line-height: 1.5;
 
