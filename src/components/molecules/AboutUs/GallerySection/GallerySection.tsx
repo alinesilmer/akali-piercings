@@ -25,14 +25,20 @@ const itemVariants: Variants = {
 };
 
 const recentPostUrls = [
+  "https://www.instagram.com/p/DMdzPCsJUeM/",
   "https://www.instagram.com/p/DK4lEzAx5Aq/?img_index=1",
   "https://www.instagram.com/p/DK4kxYmxZA4/",
-  "https://www.instagram.com/p/DKPpjFyRHx3/",
 ];
 const allPostUrls = [
   ...recentPostUrls,
   "https://www.instagram.com/p/DDcKPvAJ7We/?img_index=1",
-  "https://www.instagram.com/p/DJwXnBWRcMl/",
+  "https://www.instagram.com/p/DEX-yCwJNmZ/?img_index=1",
+  "https://www.instagram.com/p/DDcLkrGpGAN/?img_index=1",
+  "https://www.instagram.com/p/CqF15PtOj0T/",
+  "https://www.instagram.com/p/CPvfPh-nLkU/",
+  "https://www.instagram.com/p/C6JSFq7LrN9/",
+  "https://www.instagram.com/p/C8C5BQ8JGnl/",
+  "https://www.instagram.com/p/DDPETgbJRTy/?img_index=1",
 ];
 
 function InstagramEmbed({ url }: { url: string }) {

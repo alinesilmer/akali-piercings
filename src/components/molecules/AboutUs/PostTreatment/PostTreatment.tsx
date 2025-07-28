@@ -29,10 +29,10 @@ export default function PostTreatment() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.heading}>
+        <h1 className={styles.heading}>
           Cuidado Post-Tratamiento{" "}
           <span className={styles.highlight}>Piercing</span>
-        </h2>
+        </h1>
         <div className={styles.grid}>
           {cards.map(({ Icon, title, text }) => (
             <div key={title} className={styles.card}>

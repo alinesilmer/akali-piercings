@@ -38,6 +38,12 @@ export const FEATURES_DATA = [
       answer:
         "Trabajamos con turnos previos, y también por orden de llegada (con una anticipación de horas previas ya podés agendar tu turno o pactar una cita en el estudio)",
     },
+     {
+      id: "anestesia",
+      question: "¿Utilizan anestesia para hacer las perforaciones?",
+      answer:
+        "No, ya que no estamos habilitados para aplicar anestesia inyectable, y la anestesia tópica no es realmente efectiva en este tipo de procedimientos. De todos modos, trabajamos con técnicas cuidadosas, seguras y rápidas para que la experiencia sea lo más cómoda posible. Siempre priorizamos tu bienestar y nos tomamos el tiempo necesario para que te sientas tranquilo/a y acompañado/a durante todo el proceso.",
+    },
     {
       id: "domicilio",
       question: "¿Puedo hacerme un piercing en mi domicilio?",

@@ -47,7 +47,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className={styles.title}>{title}</h2>
+          <h1 className={styles.title}>{title}</h1>
         </motion.div>
 
         <CategoryFilter
