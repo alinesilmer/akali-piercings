@@ -1,7 +1,7 @@
 import styles from "./WhyUs.module.scss";
 import Frame from "../../../atoms/Frame/Frame";
 import Image1 from "../../../../assets/images/WhyUs.png";
-import Image2 from "../../../../assets/images/WhyUs2.png";
+import Image2 from "../../../../assets/images/Luz2.png";
 import Image3 from "../../../../assets/images/WhyUs3.png";
 
 const WhyUs = () => (

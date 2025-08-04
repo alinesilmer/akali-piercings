@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import styles from "./Presentation.module.scss";
 import CounterTag from "../../../atoms/CounterTag/CounterTag";
 import LuzImage from "../../../../assets/images/Luz.png";
-import LuzImage2 from "../../../../assets/images/Luz2.png";
 
 const Presentation = () => (
   <section className={styles.presentation}>
@@ -14,7 +13,6 @@ const Presentation = () => (
       transition={{ duration: 1 }}
     >
       <Frame src={LuzImage} size={500} height={600} />
-      <Frame src={LuzImage2} size={250} />
     </motion.div>
     <motion.div
       className={styles.text}
