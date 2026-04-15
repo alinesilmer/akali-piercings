@@ -1,0 +1,295 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  max-width: 900px;
+}
+
+.loading {
+  @include flex-center;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(194, 180, 138, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section {
+  @include card-base;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(194, 180, 138, 0.2);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldFull {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1;
+}
+
+.label {
+  @include label-base;
+}
+
+.optional {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: none;
+  letter-spacing: 0;
+  margin-left: 0.25rem;
+}
+
+.labelSmall {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input {
+  @include input-base;
+
+  &.inputError {
+    border-color: var(--color-error);
+  }
+}
+
+.textarea {
+  @include input-base;
+  resize: vertical;
+  min-height: 100px;
+
+  &.inputError {
+    border-color: var(--color-error);
+  }
+}
+
+.select {
+  @include input-base;
+  cursor: pointer;
+
+  .option { color: black; }
+
+  &.inputError {
+    border-color: var(--color-error);
+  }
+}
+
+.errorText {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-error);
+}
+
+.errorBanner {
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  background: rgba(244, 67, 54, 0.15);
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+  font-size: 0.9rem;
+}
+
+// Images section
+.imagesList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.imageRow {
+  padding: 1rem;
+  background: var(--color-dark);
+  border: 1px solid rgba(194, 180, 138, 0.15);
+}
+
+.imageFields {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-end;
+  flex-wrap: wrap;
+
+  @include mobile {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.imageField {
+  flex: 1;
+  min-width: 150px;
+}
+
+.imageFieldSmall {
+  width: 120px;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.removeImageButton {
+  @include button-danger;
+  @include button-small;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  height: fit-content;
+}
+
+.imagePreview {
+  margin-top: 1rem;
+
+  img {
+    max-width: 100px;
+    max-height: 75px;
+    object-fit: contain;
+    border: 1px solid rgba(194, 180, 138, 0.2);
+  }
+}
+
+.addImageButton {
+  @include button-primary;
+  @include button-small;
+  align-self: flex-start;
+  margin-top: 1rem;
+}
+
+// Features section
+.featuresInput {
+  display: flex;
+  gap: 1rem;
+
+  .input { flex: 1; }
+}
+
+.addFeatureButton {
+  @include button-primary;
+  @include button-small;
+}
+
+.featuresTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.featureTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(194, 180, 138, 0.15);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: 0.85rem;
+}
+
+.removeFeatureButton {
+  background: none;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  line-height: 1;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+
+  &:hover { opacity: 1; }
+}
+
+// Flags & active section
+.flagsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+
+  span { user-select: none; }
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+// Form actions
+.formActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  @include button-primary;
+}
+
+.submitButton {
+  @include button-secondary;
+}

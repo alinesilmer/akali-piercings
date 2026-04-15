@@ -1,0 +1,136 @@
+// ─── Admin / shared UI mixins ─────────────────────────────────────────────────
+
+// Dark panel with a subtle gold border — used as the base for all admin cards,
+// table wrappers, form sections, and dialogs.
+@mixin card-base {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(194, 180, 138, 0.15);
+  padding: 2rem;
+}
+
+// Small uppercase label above inputs
+@mixin label-base {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+// Base style for all text inputs, textareas, and selects in admin forms
+@mixin input-base {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(194, 180, 138, 0.3);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: var(--transition);
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+
+  &:focus {
+    border-color: var(--color-primary);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+  }
+}
+
+// Compact size modifier — always applied after button-primary / button-secondary
+// so it correctly overrides the larger padding from button-base
+@mixin button-small {
+  padding: 0.4rem 0.9rem;
+  font-size: 0.78rem;
+}
+
+// Red destructive button for delete / remove actions
+@mixin button-danger {
+  @include button-base;
+  background: transparent;
+  color: var(--color-error);
+  border: 2px solid var(--color-error);
+
+  &:hover {
+    background: var(--color-error);
+    color: var(--color-white);
+  }
+}
+
+// ─── Responsive breakpoints ───────────────────────────────────────────────────
+
+// Responsive breakpoints
+@mixin mobile {
+    @media (max-width: 768px) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (max-width: 1024px) {
+      @content;
+    }
+  }
+  
+  @mixin desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  }
+  
+  // Flexbox utilities
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  @mixin flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  // Button styles
+  @mixin button-base {
+    padding: 1rem 2rem;
+    border-radius: 0;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: var(--transition);
+    cursor: pointer;
+  }
+  
+  @mixin button-primary {
+    @include button-base;
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-dark);
+    }
+  }
+  
+  @mixin button-secondary {
+    @include button-base;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    border: 2px solid var(--color-primary);
+    
+    &:hover {
+      background-color: transparent;
+      color: var(--color-primary);
+    }
+  }
+  

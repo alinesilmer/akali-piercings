@@ -1,0 +1,212 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  max-width: 1200px;
+}
+
+.loading {
+  @include flex-center;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(194, 180, 138, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.addButton {
+  @include button-secondary;
+  @include button-small;
+}
+
+.empty {
+  @include card-base;
+  @include flex-center;
+  flex-direction: column;
+  padding: 3rem;
+  text-align: center;
+  gap: 1rem;
+
+  p { color: var(--color-secondary); }
+}
+
+.emptyLink {
+  @include button-primary;
+  @include button-small;
+}
+
+.tableWrapper {
+  @include card-base;
+  overflow-x: auto;
+  padding: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(194, 180, 138, 0.15);
+  }
+
+  th {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(194, 180, 138, 0.05);
+  }
+
+  td {
+    color: var(--color-secondary);
+    font-size: 0.95rem;
+  }
+
+  tbody tr:hover {
+    background: rgba(194, 180, 138, 0.03);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid rgba(194, 180, 138, 0.2);
+}
+
+.noImage {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(194, 180, 138, 0.15);
+  @include flex-center;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+}
+
+.price {
+  font-family: var(--font-heading);
+  color: var(--color-primary);
+}
+
+.statusToggle {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border: 1px solid;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &.active {
+    background: rgba(76, 175, 80, 0.15);
+    border-color: var(--color-success);
+    color: var(--color-success);
+  }
+
+  &.inactive {
+    background: rgba(255, 152, 0, 0.15);
+    border-color: var(--color-warning);
+    color: var(--color-warning);
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.editButton {
+  @include button-primary;
+  @include button-small;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+}
+
+.deleteButton {
+  @include button-danger;
+  @include button-small;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+}
+
+.dialogOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  @include flex-center;
+  z-index: 1000;
+}
+
+.dialog {
+  @include card-base;
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+}
+
+.dialogTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.dialogText {
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.dialogActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  @include button-primary;
+  @include button-small;
+}
+
+.confirmDeleteButton {
+  @include button-danger;
+  @include button-small;
+}

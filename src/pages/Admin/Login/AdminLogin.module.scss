@@ -1,0 +1,100 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  @include flex-center;
+  min-height: 100vh;
+  background: var(--color-dark);
+  padding: 1rem;
+}
+
+.loading {
+  @include flex-center;
+  min-height: 100vh;
+  background: var(--color-dark);
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 3px solid rgba(194, 180, 138, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card {
+  @include card-base;
+  width: 100%;
+  max-width: 400px;
+  padding: 2.5rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--color-secondary);
+  letter-spacing: 1px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.errorBanner {
+  padding: 1rem;
+  background: rgba(244, 67, 54, 0.15);
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  @include label-base;
+}
+
+.input {
+  @include input-base;
+
+  &.inputError {
+    border-color: var(--color-error);
+  }
+}
+
+.errorText {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-error);
+}
+
+.submitButton {
+  @include button-secondary;
+  width: 100%;
+  margin-top: 0.5rem;
+}

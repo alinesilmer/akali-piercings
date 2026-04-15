@@ -1,0 +1,289 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  max-width: 1400px;
+}
+
+.loading {
+  @include flex-center;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(194, 180, 138, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  @include flex-between;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.addButton {
+  @include button-secondary;
+  @include button-small;
+}
+
+.filters {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filterLabel {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.filterSelect {
+  @include input-base;
+  min-width: 150px;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.empty {
+  @include card-base;
+  @include flex-center;
+  flex-direction: column;
+  padding: 3rem;
+  text-align: center;
+  gap: 1rem;
+
+  p {
+    color: var(--color-secondary);
+  }
+}
+
+.emptyLink {
+  @include button-primary;
+  @include button-small;
+}
+
+.tableWrapper {
+  @include card-base;
+  overflow-x: auto;
+  padding: 0;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+
+  th,
+  td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(194, 180, 138, 0.15);
+    vertical-align: middle;
+  }
+
+  th {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--color-primary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(194, 180, 138, 0.05);
+    white-space: nowrap;
+  }
+
+  td {
+    color: var(--color-secondary);
+    font-size: 0.9rem;
+  }
+
+  tbody tr:hover {
+    background: rgba(194, 180, 138, 0.03);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border: 1px solid rgba(194, 180, 138, 0.2);
+}
+
+.noImage {
+  width: 50px;
+  height: 50px;
+  @include flex-center;
+  background: var(--color-dark);
+  border: 1px solid rgba(194, 180, 138, 0.2);
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-align: center;
+}
+
+.price {
+  font-family: var(--font-heading);
+  white-space: nowrap;
+}
+
+.originalPrice {
+  display: block;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 0;
+
+  &.published {
+    background: rgba(76, 175, 80, 0.15);
+    border: 1px solid var(--color-success);
+    color: var(--color-success);
+  }
+
+  &.draft {
+    background: rgba(255, 152, 0, 0.15);
+    border: 1px solid var(--color-warning);
+    color: var(--color-warning);
+  }
+
+  &.archived {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.badges {
+  display: flex;
+  gap: 0.3rem;
+  flex-wrap: wrap;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.65rem;
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  background: rgba(194, 180, 138, 0.2);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.actions {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.editButton,
+.publishButton {
+  @include button-primary;
+  @include button-small;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+}
+
+.deleteButton {
+  @include button-danger;
+  @include button-small;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.7rem;
+}
+
+.loadMoreWrapper {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.loadMoreButton {
+  @include button-primary;
+}
+
+// Dialog styles
+.dialogOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  @include flex-center;
+  z-index: 1000;
+}
+
+.dialog {
+  @include card-base;
+  max-width: 400px;
+  width: 90%;
+  padding: 2rem;
+}
+
+.dialogTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+}
+
+.dialogText {
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.dialogActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  @include button-primary;
+  @include button-small;
+}
+
+.confirmDeleteButton {
+  @include button-danger;
+  @include button-small;
+}

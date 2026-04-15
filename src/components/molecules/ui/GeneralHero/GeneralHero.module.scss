@@ -1,0 +1,136 @@
+
+
+.hero {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-dark);
+  color: var(--color-white);
+
+  @include m.mobile {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+.heroMediaContainer {
+  flex: 0 0 45%;
+  position: relative;
+  overflow: hidden;
+  border-right: solid 1px var(--color-primary);
+
+  @include m.mobile {
+    flex: 0 0 auto;
+    width: 100%;
+    height: fit-content;
+  }
+}
+
+
+.heroMedia {
+  width: 100%;
+  max-height: 100vh;
+  object-fit: cover;
+  display: block;
+}
+
+.heroContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 8rem 5rem;
+  margin-top: 3rem;
+  text-align: left;
+
+  @include m.mobile {
+    padding: 2rem;
+    text-align: center;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin: 0;
+  }
+}
+
+
+.heroTextTop {
+  align-self: flex-end;
+  text-align: right;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-secondary); 
+
+  @include m.mobile {
+    display: none;
+  }
+}
+
+.heroTitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4rem;
+}
+
+.heroTitleTop {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  margin: 0.5rem 0.5rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-white);
+  text-align: center;
+   align-self: flex-start;
+
+  @include m.mobile {
+    font-size: 3rem;
+    align-self: center;
+  }
+}
+
+  .heroTitleBottom {
+  font-family: var(--font-heading);
+  font-size: 5rem;
+  margin: 0.5rem 0.5rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--color-white);
+  text-align: left;
+   align-self: flex-end;
+
+  @include m.mobile {
+    font-size: 3rem;
+    align-self: center;
+  }
+}
+
+  .heroTitleEs {
+    font-family: var(--font-heading); 
+    font-size: 2.5rem; 
+    color: var(--color-primary); 
+    text-transform: lowercase;
+    display: inline-block;
+    vertical-align: middle;
+    margin: -1rem 1rem;
+
+    @include m.mobile {
+      font-size: 1.5rem;
+      margin-left: 0.5rem;
+      align-self: center;
+      margin: 1rem 0;
+    }
+  }
+
+.heroTextBottom {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-secondary); 
+
+  @include m.mobile {
+    display: none;
+  }
+}

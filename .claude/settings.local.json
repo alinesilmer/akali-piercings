@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(node -e \"const z = require\\('./node_modules/zod'\\); const r = z.string\\(\\).safeParse\\('x'\\); console.log\\(Object.keys\\(r.error || {}\\)\\)\")",
+      "Bash(node -e \"const {z} = require\\('./node_modules/zod'\\); console.log\\(require\\('./node_modules/zod/package.json'\\).version\\)\")"
+    ]
+  }
+}

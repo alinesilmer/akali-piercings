@@ -1,0 +1,141 @@
+@use '../../../styles/mixins' as *;
+
+.container {
+  max-width: 800px;
+}
+
+.loading {
+  @include flex-center;
+  min-height: 300px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(194, 180, 138, 0.2);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.form {
+  @include card-base;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldFull {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / -1;
+}
+
+.label {
+  @include label-base;
+}
+
+.input {
+  @include input-base;
+
+  &.inputError {
+    border-color: var(--color-error);
+  }
+}
+
+.textarea {
+  @include input-base;
+  resize: vertical;
+  min-height: 100px;
+
+  &.inputError {
+    border-color: var(--color-error);
+  }
+}
+
+.errorBanner {
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background: rgba(229, 57, 53, 0.12);
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
+  font-size: 0.9rem;
+}
+
+.errorText {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-error);
+}
+
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-top: 1.5rem;
+
+  span {
+    user-select: none;
+  }
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.formActions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(194, 180, 138, 0.2);
+}
+
+.cancelButton {
+  @include button-primary;
+}
+
+.submitButton {
+  @include button-secondary;
+}

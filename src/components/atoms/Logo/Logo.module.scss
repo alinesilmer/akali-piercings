@@ -1,0 +1,37 @@
+
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+
+.small {
+  width: 70px;
+  height: 70px;
+}
+
+.medium {
+  width: 94px;
+  height: 94px;
+}
+
+.large {
+  width: 110px;
+  height: 110px;
+}
+
+.logoIcon {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    display: block;
+  }
+}
