@@ -1,0 +1,29 @@
+// Opening block of every inner page: ghost kanji, eyebrow, display title, lede and optional media.
+.page-intro {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(24px, 4vw, 56px) var(--pad) clamp(40px, 6vw, 88px);
+}
+
+.page-intro__ghost {
+  position: absolute;
+  top: -2vw;
+  right: -2vw;
+  z-index: -1;
+  color: transparent;
+  font-family: var(--font-jp);
+  font-size: clamp(14rem, 32vw, 30rem);
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  -webkit-text-stroke: 1px rgba(239, 233, 221, 0.09);
+}
+
+.page-intro__title {
+  margin: 1.2rem 0 1.4rem;
+}
+
+.page-intro__media {
+  margin-top: clamp(28px, 4vw, 56px);
+}

@@ -1,0 +1,145 @@
+@use "../theme" as t;
+
+// One button for the whole app. Hover slides a fill in from below (no snapping),
+// and colours follow with the same soft curve so the motion reads as one gesture.
+.btn {
+  --btn-bg: transparent;
+  --btn-fg: inherit;
+  --btn-border: transparent;
+  --btn-fill: var(--fg);
+  --btn-fill-fg: var(--bg);
+
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.7rem;
+  overflow: hidden;
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius-pill);
+  background-color: var(--btn-bg);
+  color: var(--btn-fg);
+  font-size: 0.88rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  white-space: nowrap;
+  transition:
+    color var(--t-base) var(--ease-soft),
+    border-color var(--t-base) var(--ease-soft),
+    background-color var(--t-base) var(--ease-soft),
+    transform var(--t-base) var(--ease-soft);
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    z-index: -1;
+    border-radius: inherit;
+    background: var(--btn-fill);
+    transform: translate3d(0, 102%, 0);
+    transition: transform var(--t-base) var(--ease);
+  }
+
+  svg {
+    flex: none;
+    transition: transform var(--t-base) var(--ease);
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--btn-fill-fg);
+    border-color: var(--btn-fill);
+
+    &::before {
+      transform: translate3d(0, 0, 0);
+    }
+
+    svg {
+      transform: translate3d(2px, -2px, 0);
+    }
+  }
+
+  &:active {
+    transform: scale(0.985);
+    transition-duration: 0.2s;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+.btn--solid {
+  --btn-bg: var(--accent);
+  --btn-fg: var(--on-accent);
+  --btn-border: var(--accent);
+}
+
+.btn--line {
+  --btn-border: var(--rule);
+}
+
+.btn--white {
+  --btn-bg: #fff;
+  --btn-fg: var(--accent);
+  --btn-border: #fff;
+  --btn-fill: var(--bg);
+  --btn-fill-fg: #fff;
+}
+
+.btn--sm {
+  padding: 0.7rem 1.3rem;
+  font-size: 0.8rem;
+}
+
+// Filter pill: quiet until selected.
+.btn--chip {
+  --btn-fg: var(--muted);
+  --btn-fill: rgba(239, 233, 221, 0.1);
+  --btn-fill-fg: var(--fg);
+
+  padding: 0.6rem 1.25rem;
+  font-size: 0.84rem;
+
+  &.is-on {
+    --btn-bg: var(--fg);
+    --btn-fg: var(--bg);
+    --btn-fill: var(--fg);
+  }
+}
+
+.btn--icon {
+  --btn-fill: rgba(239, 233, 221, 0.1);
+  --btn-fill-fg: var(--fg);
+
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+// Text link with an underline that follows the colour.
+.btn--link {
+  padding: 0 0 0.3rem;
+  overflow: visible;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  &::before {
+    display: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--accent-hi);
+  }
+}

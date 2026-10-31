@@ -1,0 +1,48 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.vercel
+.env
+firestore.rules
+firestore.indexes.json
+
+# Secrets — never commit, never import from src/
+.env.*
+!.env.example
+.secrets/
+secretApi.json
+*service-account*.json
+*serviceAccount*.json
+
+# Scratch example images, not part of the site
+newexamples/
+
+# Pre-cleanup copy of the project; delete once the cleanup is confirmed
+_backup-before-cleanup/
+
+# Pre-redesign copy of the files the Sumi Noir redesign replaced; delete once the redesign is confirmed
+_backup-before-redesign/
+
+.vercel

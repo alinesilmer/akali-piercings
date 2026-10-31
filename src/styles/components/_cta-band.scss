@@ -1,0 +1,62 @@
+@use "../theme" as t;
+
+// Full-width ember call to action over a drifting seigaiha pattern.
+.cta-band {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: clamp(90px, 12vw, 170px) var(--pad);
+  background: var(--accent);
+  color: var(--on-accent);
+  text-align: center;
+
+  > * {
+    position: relative;
+  }
+
+  p {
+    max-width: 44ch;
+    margin: 1.3rem 0 2.2rem;
+    opacity: 0.92;
+  }
+}
+
+.cta-band__waves {
+  position: absolute;
+  inset: -40px;
+  width: calc(100% + 80px);
+  height: calc(100% + 80px);
+  color: #fff;
+  opacity: 0.14;
+  animation: waves 60s linear infinite;
+
+  circle {
+    fill: none;
+    stroke: currentColor;
+  }
+}
+
+@keyframes waves {
+  to {
+    transform: translate3d(40px, 20px, 0);
+  }
+}
+
+.cta-band__chip {
+  @include t.label;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.6rem;
+  padding: 0.55rem 1.2rem;
+  border: 1px dashed rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  transition: background-color var(--t-base) var(--ease-soft);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.14);
+  }
+}

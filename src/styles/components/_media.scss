@@ -1,0 +1,136 @@
+@use "../mixins" as m;
+// Framed imagery. A frame clips whatever it holds (image, parallax, video) to its shape.
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--card);
+}
+
+.frame--arch {
+  aspect-ratio: 3 / 4;
+  border: 1px solid var(--rule);
+  border-radius: 999px 999px var(--radius-md) var(--radius-md);
+}
+
+.frame--round {
+  aspect-ratio: 1;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+}
+
+.frame--soft {
+  border-radius: var(--radius-sm);
+}
+
+.frame--wide {
+  aspect-ratio: 21 / 9;
+  border-radius: var(--radius-md);
+
+  @include m.mobile {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+.frame--tall {
+  aspect-ratio: 4 / 5;
+}
+
+.frame > img,
+.frame > video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+// A parallax image or video stretched over its frame.
+.frame > .fill {
+  position: absolute;
+  inset: 0;
+}
+
+// Two overlapping photos.
+.collage {
+  position: relative;
+  aspect-ratio: 4 / 5;
+}
+
+.collage__main,
+.collage__detail {
+  position: absolute;
+}
+
+.collage__main {
+  inset: 0 22% 14% 0;
+}
+
+.collage__detail {
+  right: 0;
+  bottom: 0;
+  width: 48%;
+  height: 48%;
+  border: 8px solid var(--bg);
+}
+
+// Category circles that draw an ember ring on hover.
+.zone-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: clamp(14px, 2vw, 28px);
+
+  @include m.tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @include m.mobile {
+    gap: 1.4rem 0.9rem;
+  }
+}
+
+.zone {
+  display: block;
+  text-align: center;
+}
+
+.zone__ring {
+  position: relative;
+  display: block;
+  transition: transform var(--t-base) var(--ease);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1s var(--ease);
+  }
+
+  img {
+    filter: saturate(0.85);
+    transition: transform 1.2s var(--ease);
+  }
+}
+
+.zone:hover,
+.zone:focus-visible {
+  .zone__ring {
+    transform: translate3d(0, -8px, 0);
+
+    &::after {
+      clip-path: inset(0);
+    }
+
+    img {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.zone__name {
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  line-height: 1.1;
+}

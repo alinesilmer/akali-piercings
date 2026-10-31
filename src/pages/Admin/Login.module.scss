@@ -1,0 +1,119 @@
+@use "@/styles/theme" as t;
+
+.login {
+  @include t.tokens;
+  display: grid;
+  place-items: center;
+  min-height: 100svh;
+  padding: var(--pad);
+  background: var(--bg);
+  color: var(--fg);
+  font-family: t.$mono;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  width: min(100%, 360px);
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-align: center;
+
+  h1 {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: t.$serif;
+    font-size: 2.6rem;
+    font-style: italic;
+    line-height: 1;
+  }
+}
+
+.mono {
+  @include t.mono;
+  opacity: 0.6;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  > span {
+    @include t.mono;
+    opacity: 0.7;
+  }
+
+  input {
+    width: 100%;
+    padding: 0.6rem 0;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 0;
+    background: transparent;
+    color: var(--fg);
+    font-family: t.$mono;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-bottom-color: var(--fg);
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: var(--fg);
+      box-shadow: 0 0 0 100px var(--bg) inset;
+    }
+  }
+}
+
+.invalid input {
+  border-bottom-color: var(--accent);
+}
+
+.password {
+  position: relative;
+
+  input {
+    padding-right: 3rem;
+  }
+
+  button {
+    position: absolute;
+    right: -0.5rem;
+    bottom: 0;
+    opacity: 0.6;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.error {
+  @include t.mono;
+  color: var(--accent);
+}
+
+.submit {
+  justify-content: center;
+  margin-top: 0.5rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: wait;
+  }
+}
+
+.back {
+  align-self: center;
+}

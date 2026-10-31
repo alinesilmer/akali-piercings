@@ -1,0 +1,98 @@
+@use "../mixins" as m;
+@use "../theme" as t;
+
+.about-luz {
+  h2 {
+    margin: 1rem 0 1.2rem;
+  }
+
+  p {
+    max-width: 46ch;
+    color: var(--muted);
+  }
+}
+
+// ── Care: before / after ─────────────────────────────────────────
+.care-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(24px, 4vw, 64px);
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.care-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+
+  h3 {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+  }
+}
+
+.care-card__kanji {
+  color: var(--accent-hi);
+  font-family: var(--font-jp);
+  font-size: 1.4rem;
+}
+
+.tip {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  align-items: start;
+  gap: 0.3rem 1rem;
+  padding: 1.1rem 0;
+
+  > svg {
+    grid-row: span 2;
+    color: var(--accent-hi);
+  }
+
+  strong {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.1;
+  }
+
+  span {
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+}
+
+// ── Instagram work feed ──────────────────────────────────────────
+.posts {
+  display: flex;
+  gap: 1.2rem;
+  min-height: 420px;
+  margin-inline: calc(var(--pad) * -1);
+  padding: 0 var(--pad) 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+}
+
+.post {
+  flex: none;
+  width: min(328px, 82vw);
+  visibility: hidden;
+  scroll-snap-align: start;
+
+  &.is-ready {
+    visibility: visible;
+  }
+
+  blockquote {
+    margin: 0;
+  }
+
+  iframe {
+    border-radius: var(--radius-md);
+  }
+}

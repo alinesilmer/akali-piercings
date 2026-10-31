@@ -1,0 +1,27 @@
+@use "../theme" as t;
+
+.badge-stack {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.badge {
+  @include t.label;
+  padding: 0.38rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--fg);
+  color: var(--bg);
+  font-size: 0.62rem;
+  font-weight: 600;
+}
+
+.badge--sale {
+  background: var(--accent);
+  color: var(--on-accent);
+}

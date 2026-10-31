@@ -1,0 +1,39 @@
+$serif: "Instrument Serif", "Times New Roman", serif;
+$mono: "DM Mono", ui-monospace, monospace;
+$sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+$jp: "Shippori Mincho", "Noto Serif JP", serif;
+$ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+@mixin tokens {
+  --bg: #121110;
+  --fg: #efe9dd;
+  --accent: #c9432b;
+  --accent-hi: #e0583f;
+  --muted: #a59f93;
+  --on-accent: #f6f1e7;
+  --rule: rgba(239, 233, 221, 0.24);
+  --pad: clamp(16px, 4vw, 48px);
+}
+
+@mixin mono {
+  font-family: $mono;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+// Small uppercase label for the storefront (nav, badges, filters): the commercial counterpart of `mono`.
+@mixin label {
+  font-family: $sans;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+@mixin jp {
+  font-family: $jp;
+  letter-spacing: 0.3em;
+}

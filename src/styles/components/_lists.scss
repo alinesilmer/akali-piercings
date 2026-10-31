@@ -1,0 +1,140 @@
+@use "../mixins" as m;
+@use "../theme" as t;
+
+// Ruled list item: a hairline draws itself in (framer) along the top edge.
+.ruled__item {
+  position: relative;
+}
+
+.ruled__rule {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: var(--rule-color, var(--rule));
+  transform-origin: left;
+}
+
+// Icon + title + note, in a responsive grid.
+.icon-notes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+}
+
+.icon-note {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem 1.5rem 0;
+
+  > svg {
+    color: var(--accent-hi);
+  }
+
+  h3 {
+    font-size: 1.35rem;
+    line-height: 1.15;
+  }
+
+  span {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+}
+
+// Numbered steps with outlined numerals.
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  @include m.mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.step {
+  padding: 2.1rem 1.9rem 2.5rem;
+  border-right: 1px solid var(--rule);
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
+
+  h3 {
+    margin: 1.1rem 0 0.4rem;
+    font-size: 1.9rem;
+  }
+
+  p {
+    color: var(--muted);
+  }
+
+  > svg {
+    position: absolute;
+    top: 2.4rem;
+    right: 1.9rem;
+    color: var(--muted);
+  }
+
+  @include m.mobile {
+    padding-left: 0;
+    border-right: 0;
+  }
+}
+
+.step__no {
+  display: block;
+  color: transparent;
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  line-height: 1;
+  transition: color var(--t-base) var(--ease-soft);
+  -webkit-text-stroke: 1px var(--accent);
+}
+
+.step:hover .step__no {
+  color: var(--accent);
+}
+
+// Wide row: index, title, caption and a thumbnail that grows on hover.
+.rows {
+  border-bottom: 1px solid var(--rule);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto clamp(72px, 9vw, 130px);
+  align-items: center;
+  gap: 1.5rem;
+  padding: clamp(18px, 2.4vw, 32px) 0;
+  transition: padding var(--t-base) var(--ease), color var(--t-fast) var(--ease-soft);
+
+  &:hover {
+    padding-inline: 1.2rem;
+    color: var(--accent-hi);
+  }
+
+  img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    filter: saturate(0.85);
+  }
+
+  @include m.mobile {
+    grid-template-columns: 2.4rem 1fr 72px;
+
+    .row__line {
+      display: none;
+    }
+  }
+}
+
+.row__title {
+  font-size: clamp(2rem, 5vw, 4.6rem);
+  line-height: 1;
+}

@@ -1,0 +1,156 @@
+@use "../mixins" as m;
+@use "../theme" as t;
+
+// ── Hero ─────────────────────────────────────────────────────────
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  min-height: min(82svh, 820px);
+  padding: clamp(8px, 2vw, 24px) var(--pad) clamp(56px, 7vw, 96px);
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+}
+
+.hero__ghost {
+  position: absolute;
+  top: -3vw;
+  right: -2vw;
+  z-index: -1;
+  color: transparent;
+  font-family: var(--font-jp);
+  font-size: clamp(16rem, 38vw, 35rem);
+  font-weight: 600;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  -webkit-text-stroke: 1px rgba(239, 233, 221, 0.09);
+}
+
+.hero__title {
+  margin: 1.4rem 0 1.6rem;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 2.1rem 0 2.4rem;
+}
+
+.hero__trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.9rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  svg {
+    color: var(--accent-hi);
+  }
+}
+
+.hero__stage {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 520px);
+
+  @include m.tablet {
+    margin-top: 1rem;
+  }
+}
+
+.hero__sun {
+  position: absolute;
+  top: 2%;
+  right: -14%;
+  z-index: -1;
+  width: 86%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--accent-hi), #a52f1b 70%);
+  box-shadow: 0 0 120px var(--glow);
+  animation: float 12s ease-in-out infinite;
+}
+
+.hero__spin {
+  position: absolute;
+  bottom: 46px;
+  left: -54px;
+  display: grid;
+  place-items: center;
+  width: 132px;
+  height: 132px;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  background: var(--bg);
+
+  svg {
+    position: absolute;
+    inset: 0;
+    animation: turn 24s linear infinite;
+  }
+
+  text {
+    fill: var(--fg);
+    font-family: var(--font-sans);
+    font-size: 9.6px;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
+  span {
+    color: var(--accent-hi);
+    font-family: var(--font-jp);
+    font-size: 1.9rem;
+    font-weight: 600;
+  }
+
+  @include m.mobile {
+    left: -10px;
+    width: 104px;
+    height: 104px;
+
+    svg {
+      scale: 0.79;
+    }
+  }
+}
+
+// Individual `translate` / `rotate` never fight framer-motion's `transform`.
+@keyframes float {
+  50% {
+    translate: 0 -16px;
+  }
+}
+
+@keyframes turn {
+  to {
+    rotate: 360deg;
+  }
+}
+
+// ── Studio ───────────────────────────────────────────────────────
+.studio-copy {
+  h2 {
+    margin: 1rem 0 1.4rem;
+  }
+
+  p {
+    max-width: 50ch;
+    color: var(--muted);
+  }
+}

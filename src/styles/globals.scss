@@ -1,0 +1,25 @@
+// Global design system entry. Order matters: tokens → base → layout → components → sections.
+// Every public page is built from these classes; there are no per-page style files.
+@use "base/tokens";
+@use "base/reset";
+@use "base/typography";
+
+@use "layout/shell";
+@use "layout/header";
+@use "layout/footer";
+@use "layout/page-intro";
+
+@use "components/button";
+@use "components/badge";
+@use "components/field";
+@use "components/modal";
+@use "components/product-card";
+@use "components/lists";
+@use "components/media";
+@use "components/gallery";
+@use "components/figures";
+@use "components/cta-band";
+
+@use "sections/home";
+@use "sections/about";
+@use "sections/contact";

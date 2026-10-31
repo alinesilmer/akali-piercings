@@ -1,0 +1,7 @@
+.secrets
+.env
+.env.*
+_backup-before-cleanup
+_backup-before-redesign
+node_modules
+dist

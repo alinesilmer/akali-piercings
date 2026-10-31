@@ -1,0 +1,231 @@
+@use "../mixins" as m;
+@use "../theme" as t;
+
+// Shared overlay: product sheet, search drawer and lightbox are all variants of this one.
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1200;
+  display: grid;
+  place-items: center;
+  padding: clamp(12px, 3vw, 32px);
+  background: rgba(8, 8, 8, 0.82);
+  backdrop-filter: blur(10px);
+  cursor: zoom-out;
+}
+
+.modal__sheet {
+  position: relative;
+  width: min(1040px, 100%);
+  max-height: 92svh;
+  overflow: auto;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-md);
+  background: var(--panel);
+  cursor: auto;
+  overscroll-behavior: contain;
+}
+
+.modal__close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 5;
+}
+
+.modal--top {
+  align-items: start;
+  padding: 0;
+
+  .modal__sheet {
+    width: 100%;
+    max-height: 100svh;
+    border: 0;
+    border-bottom: 1px solid var(--rule);
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    background: var(--bg);
+  }
+}
+
+.modal--plain img {
+  max-width: min(92vw, 460px);
+  max-height: 88svh;
+  border-radius: var(--radius-md);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+}
+
+// Product detail sheet.
+.product-sheet {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+
+  @include m.tablet {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-sheet__stage {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--card);
+
+  img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @include m.tablet {
+    aspect-ratio: 1;
+  }
+}
+
+.product-sheet__thumbs {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: var(--card);
+}
+
+.product-sheet__thumb {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  opacity: 0.6;
+  transition:
+    opacity var(--t-fast) var(--ease-soft),
+    border-color var(--t-fast) var(--ease-soft);
+
+  &.is-on,
+  &:hover {
+    border-color: var(--accent);
+    opacity: 1;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.product-sheet__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: clamp(24px, 4vw, 52px);
+}
+
+.product-sheet__price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+
+  s {
+    color: var(--muted);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+}
+
+.product-sheet__features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  svg {
+    color: var(--accent-hi);
+  }
+}
+
+.product-sheet__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 0.6rem;
+}
+
+// Search drawer.
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  padding: clamp(20px, 4vw, 48px) var(--pad) clamp(28px, 5vw, 56px);
+}
+
+.search__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.search__results {
+  display: flex;
+  flex-direction: column;
+}
+
+.search__row {
+  display: grid;
+  grid-template-columns: 64px 1fr auto auto 1.5rem;
+  align-items: center;
+  gap: 1.2rem;
+  width: 100%;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  transition: padding var(--t-base) var(--ease), color var(--t-fast) var(--ease-soft);
+
+  &:hover {
+    padding-inline: 0.8rem;
+    color: var(--accent-hi);
+  }
+
+  img {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+
+  mark {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+
+  @include m.mobile {
+    grid-template-columns: 52px 1fr auto;
+
+    .label,
+    svg {
+      display: none;
+    }
+  }
+}
+
+.search__title {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+}

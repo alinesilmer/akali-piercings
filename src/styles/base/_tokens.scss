@@ -1,0 +1,28 @@
+@use "../theme" as t;
+
+// Design tokens: the single source of truth for colour, type, motion and spacing.
+:root {
+  @include t.tokens;
+
+  --panel: #171513;
+  --card: #1b1917;
+  --glow: rgba(201, 67, 43, 0.35);
+
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-jp: "Shippori Mincho", "Noto Serif JP", serif;
+
+  // `--ease` for entrances (fast start, long settle); `--ease-soft` for hover and state changes.
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --t-fast: 0.4s;
+  --t-base: 0.7s;
+  --t-slow: 1.1s;
+
+  --radius-sm: 6px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+
+  --section-y: clamp(64px, 9vw, 130px);
+  --gap: clamp(14px, 1.6vw, 24px);
+}
